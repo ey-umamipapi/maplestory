@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Google Fonts ─────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fredoka:wght@600;700&family=Nunito:wght@400;600;700&display=swap');
+
+/* ── Base ─────────────────────────────────────────────────────────────────────── */
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #0a0a14;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* ── Custom scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a14; }
+::-webkit-scrollbar-thumb { background: #e94560; border-radius: 3px; }
+
+/* ── Input autofill override ──────────────────────────────────────────────────── */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #16213e inset !important;
+  -webkit-text-fill-color: #e2e8f0 !important;
+}
+
+/* ── Maple input glow ─────────────────────────────────────────────────────────── */
+.maple-input:focus {
+  outline: none;
+  border-color: #e94560 !important;
+  box-shadow: 0 0 0 1px #e94560, 0 0 16px rgba(233, 69, 96, 0.25);
+}
+
+/* ── Star background ──────────────────────────────────────────────────────────── */
+.stars-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(233,69,96,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(230,126,34,0.06) 0%, transparent 60%),
+    #0a0a14;
+}
+
+.stars-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 25%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 75%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 45%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 55% 35%, rgba(241,196,15,0.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 15% 65%, rgba(241,196,15,0.3) 0%, transparent 100%),
+    radial-gradient(2px 2px at 70% 90%, rgba(241,196,15,0.3) 0%, transparent 100%);
+}
+
+/* ── Floating maple leaves ────────────────────────────────────────────────────── */
+.leaf {
+  position: fixed;
+  top: -60px;
+  font-size: 1.5rem;
+  animation: fall linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  user-select: none;
+}
+.leaf:nth-child(1)  { left:  5%; animation-duration: 12s; animation-delay: 0s;   font-size: 1.2rem; }
+.leaf:nth-child(2)  { left: 15%; animation-duration: 18s; animation-delay: 3s;   font-size: 1.8rem; opacity: 0.3; }
+.leaf:nth-child(3)  { left: 30%; animation-duration: 14s; animation-delay: 6s;   font-size: 1.0rem; }
+.leaf:nth-child(4)  { left: 48%; animation-duration: 20s; animation-delay: 1s;   font-size: 2rem;   opacity: 0.25; }
+.leaf:nth-child(5)  { left: 65%; animation-duration: 15s; animation-delay: 9s;   font-size: 1.4rem; }
+.leaf:nth-child(6)  { left: 78%; animation-duration: 11s; animation-delay: 4s;   font-size: 1.1rem; }
+.leaf:nth-child(7)  { left: 90%; animation-duration: 16s; animation-delay: 7s;   font-size: 1.6rem; opacity: 0.35; }
+
+@keyframes fall {
+  0%   { transform: translateY(-60px) rotate(0deg);    opacity: 0; }
+  10%  { opacity: 0.5; }
+  90%  { opacity: 0.3; }
+  100% { transform: translateY(110vh) rotate(360deg);  opacity: 0; }
+}
+
+/* ── Glow card ────────────────────────────────────────────────────────────────── */
+.maple-card {
+  background: linear-gradient(135deg, rgba(22,33,62,0.95) 0%, rgba(15,15,30,0.98) 100%);
+  border: 1px solid rgba(233, 69, 96, 0.25);
+  box-shadow:
+    0 0 0 1px rgba(233,69,96,0.08),
+    0 20px 60px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+}
+
+/* ── Cinzel font utility ──────────────────────────────────────────────────────── */
+.font-cinzel { font-family: 'Cinzel', serif; }
+
+/* ── Gradient text ────────────────────────────────────────────────────────────── */
+.maple-gradient-text {
+  background: linear-gradient(135deg, #f1c40f 0%, #e67e22 40%, #e94560 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Button shine effect ──────────────────────────────────────────────────────── */
+.btn-maple {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e94560, #c0392b);
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 20px rgba(233,69,96,0.4);
+}
+.btn-maple:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(233,69,96,0.55);
+}
+.btn-maple:active {
+  transform: translateY(0);
+}
+.btn-maple::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: rgba(255,255,255,0.12);
+  transform: skewX(-20deg);
+  transition: left 0.4s ease;
+}
+.btn-maple:hover::after {
+  left: 125%;
+}
+
+/* ── Section divider ──────────────────────────────────────────────────────────── */
+.maple-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(233,69,96,0.4), transparent);
+}
