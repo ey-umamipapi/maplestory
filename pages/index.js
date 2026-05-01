@@ -60,11 +60,12 @@ export default function Home() {
 
           <p className="text-slate-400 text-lg md:text-xl max-w-lg mb-3 leading-relaxed">
             A classic v83 MapleStory private server.<br />
-            Free to play. No pay-to-win.
+            Built for nostalgia. Free to play. Free NX cash.<br />
+            x10 exp and x10 mesos.
           </p>
 
           <p className="text-slate-600 text-sm mb-10">
-            Create an account below and start your adventure.
+            Create an account below and start your adventure!
           </p>
 
           {/* CTAs */}
@@ -134,7 +135,7 @@ export default function Home() {
 
         {/* ── Footer ────────────────────────────────────────────────────────── */}
         <footer className="text-center py-6 text-slate-700 border-t border-maple-border/20 text-sm">
-          🍁 {siteName} — For fun, not profit.
+          🍁 {siteName} — Just for fun.
         </footer>
       </div>
     </>
