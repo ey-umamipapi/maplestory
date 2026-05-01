@@ -62,7 +62,12 @@ const STEPS = [
   {
     emoji: "🍁",
     title: "Add the UmamiMS client files",
-    body: "Download the UmamiMS client pack and extract it into the same MapleStory folder. This adds Kaentake.exe and all required config files.",
+    body: "Download the UmamiMS client pack and extract it. Open the extracted folder and copy all the individual files inside it into your MapleStory folder — not the folder itself, just the loose files within it. They should sit alongside your other MapleStory files.",
+  },
+  {
+    emoji: "🛡️",
+    title: "Allow Kaentake.exe if flagged",
+    body: "Windows Defender or your antivirus may flag Kaentake.exe as a trojan. This is a false positive — it's a private server launcher, not malware. To allow it: open Windows Security → Virus & threat protection → Protection history, find the quarantined file, and click Allow. Or add an exclusion for your MapleStory folder before extracting.",
   },
   {
     emoji: "📝",
