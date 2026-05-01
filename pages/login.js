@@ -5,7 +5,7 @@ import { useState } from "react";
 const LEAVES = ["🍁", "🍂", "🍁", "🍂", "🍁", "🍂", "🍁"];
 
 export default function Login() {
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "EthanMS";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "UmamiMS";
 
   const [form,    setForm]    = useState({ username: "", password: "" });
   const [error,   setError]   = useState("");

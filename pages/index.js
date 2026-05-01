@@ -4,7 +4,7 @@ import Link from "next/link";
 const LEAVES = ["🍁", "🍂", "🍁", "🍂", "🍁", "🍂", "🍁"];
 
 export default function Home() {
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME  || "EthanMS";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME  || "UmamiMS";
   const gameHost = process.env.NEXT_PUBLIC_GAME_HOST  || "localhost";
   const gamePort = process.env.NEXT_PUBLIC_GAME_PORT  || "8484";
 

@@ -7,7 +7,7 @@ const LEAVES = ["🍁", "🍂", "🍁", "🍂", "🍁", "🍂", "🍁"];
 
 export default function Register() {
   const router   = useRouter();
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "EthanMS";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "UmamiMS";
 
   const [form, setForm] = useState({
     fullName: "", username: "", password: "", confirmPassword: "",
