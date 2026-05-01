@@ -3,6 +3,21 @@ import Link from "next/link";
 
 const LEAVES = ["🍁", "🍂", "🍁", "🍂", "🍁", "🍂", "🍁"];
 
+const FEATURES = [
+  { icon: "⚔️", title: "All Classes", body: "Warriors, Mages, Archers, Thieves, and Pirates — every v83 class and job advancement available." },
+  { icon: "👹", title: "All Bosses", body: "Zakum, Horntail, Papulatus, Chaos Zakum, Pink Bean and more. All bosses accessible and farmable." },
+  { icon: "🎉", title: "Party Quests", body: "Kerning PQ, Ludibrium PQ, Orbis PQ, Magatia PQ and all classic party quests fully working." },
+  { icon: "🗺️", title: "Full World", body: "Every map, town, and dungeon — Maple Island, Victoria Island, Ossyria, Ludus Lake, and beyond." },
+  { icon: "🌿", title: "x10 EXP & Mesos", body: "Boosted rates so you can progress at a satisfying pace without the grind being a second job." },
+  { icon: "💰", title: "Free NX Cash", body: "Earn NX in-game to spend on cosmetics. No real money needed — ever." },
+  { icon: "🛍️", title: "Frederick's All-in-One Shop", body: "Find Frederick the store banker in the Free Market — he stocks everything you need in one place." },
+  { icon: "💇", title: "Dr. Lenu — Cosmetic NPC", body: "Change your hair, face, and skin colour for free anytime. Customise your look whenever you want." },
+  { icon: "🏰", title: "Guilds & Alliances", body: "Form or join a guild, build your alliance, and compete on the leaderboards." },
+  { icon: "📖", title: "Monster Book", body: "Hunt monsters to complete your collection and unlock card set bonuses." },
+  { icon: "🎨", title: "Full Cash Shop", body: "Browse the full v83 Cash Shop catalogue — all cosmetics, pets, and mounts available free." },
+  { icon: "🤝", title: "Active Community", body: "Small, friendly server. New players always welcome." },
+];
+
 export default function Home() {
   const siteName = process.env.NEXT_PUBLIC_SITE_NAME  || "UmamiMS";
   const gameHost = process.env.NEXT_PUBLIC_GAME_HOST  || "localhost";
@@ -90,51 +105,21 @@ export default function Home() {
           {/* ── Divider ───────────────────────────────────────────────────── */}
           <div className="maple-divider w-full max-w-2xl mb-14" />
 
-          {/* ── How to Connect ──────────────────────────────────────────── */}
-          <div className="w-full max-w-3xl grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-
-            {/* Connection Info */}
-            <div className="maple-card rounded-2xl p-6">
-              <h2 className="font-cinzel text-lg font-bold text-maple-yellow mb-4 flex items-center gap-2">
-                🗺 How to Connect
-              </h2>
-              <ol className="space-y-3 text-slate-400">
-                {[
-                  "Register an account using the button above",
-                  "Download the MapleStory v83 client",
-                  <>Set your server IP to <code className="text-maple-accent bg-maple-darker/70 px-1.5 py-0.5 rounded text-xs">{gameHost}</code></>,
-                  <>Port: <code className="text-maple-accent bg-maple-darker/70 px-1.5 py-0.5 rounded text-xs">{gamePort}</code></>,
-                  "Login with your username and password",
-                ].map((step, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-maple-accent/20 text-maple-accent text-xs font-bold flex items-center justify-center mt-0.5">
-                      {i + 1}
-                    </span>
-                    <span className="text-sm leading-relaxed">{step}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            {/* Features */}
-            <div className="maple-card rounded-2xl p-6">
-              <h2 className="font-cinzel text-lg font-bold text-maple-yellow mb-4 flex items-center gap-2">
-                ✨ Features
-              </h2>
-              <ul className="space-y-3 text-slate-400">
-                {[
-                  ["🌿", "Classic v83 gameplay"],
-                  ["💰", "No pay-to-win — all cosmetics are free"],
-                  ["⚔️", "All bosses & dungeons available"],
-                  ["🧑‍🤝‍🧑", "Party & guild system"],
-                  ["🎨", "Full cosmetic NPC — change hair, face & skin for free"],
-                ].map(([icon, text], i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm">
-                    <span className="text-base">{icon}</span>
-                    {text}
-                  </li>
-                ))}
-              </ul>
+          {/* ── What's in UmamiMS ───────────────────────────────────────── */}
+          <div className="w-full max-w-4xl">
+            <h2 className="font-cinzel text-2xl font-bold text-maple-yellow mb-10 text-center">
+              ✨ What&apos;s in UmamiMS
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 text-left">
+              {FEATURES.map(({ icon, title, body }) => (
+                <div key={title} className="maple-card rounded-2xl p-5 flex gap-4 items-start">
+                  <span className="text-2xl flex-shrink-0">{icon}</span>
+                  <div>
+                    <p className="font-cinzel text-slate-100 text-sm font-bold mb-1">{title}</p>
+                    <p className="text-slate-500 text-xs leading-relaxed">{body}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </main>

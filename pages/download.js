@@ -157,26 +157,6 @@ export default function Download() {
 
           <div className="maple-divider w-full max-w-4xl mb-16" />
 
-          {/* Features */}
-          <div className="w-full max-w-4xl mb-16">
-            <h2 className="font-cinzel text-2xl font-bold text-maple-yellow mb-10 text-center">
-              ✨ What's in UmamiMS
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-              {FEATURES.map(({ icon, title, body }) => (
-                <div key={title} className="maple-card rounded-2xl p-5 flex gap-4 items-start">
-                  <span className="text-2xl flex-shrink-0">{icon}</span>
-                  <div>
-                    <p className="font-cinzel text-slate-100 text-sm font-bold mb-1">{title}</p>
-                    <p className="text-slate-500 text-xs leading-relaxed">{body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="maple-divider w-full max-w-4xl mb-16" />
-
           {/* Tutorial */}
           <div className="w-full max-w-2xl">
             <h2 className="font-cinzel text-2xl font-bold text-maple-yellow mb-10 text-center">
