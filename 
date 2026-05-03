@@ -1,0 +1,29 @@
+[33mcommit 1dd8474d0c07c2f8e314afe0d28cb9fa6cca17ed[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Ethan Yong <ethanmyong@gmail.com>
+Date:   Fri May 1 21:17:18 2026 +1000
+
+    update hardcoded site name fallbacks to UmamiMS
+
+[33mcommit dd918df3f08f1dcc6d418c768401b7648a8090d1[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Ethan Yong <ethanmyong@gmail.com>
+Date:   Fri May 1 21:09:16 2026 +1000
+
+    hardcode all db config
+
+[33mcommit b9428f5d3ff4ffc82b6f650329e027bcd2335425[m
+Author: Ethan Yong <ethanmyong@gmail.com>
+Date:   Fri May 1 21:05:55 2026 +1000
+
+    add logging to debug db connection
+
+[33mcommit 0641212b27881c905276f0551180beebd86109bd[m
+Author: Ethan Yong <ethanmyong@gmail.com>
+Date:   Fri May 1 21:02:58 2026 +1000
+
+    hardcode db credentials as fallback
+
+[33mcommit ecd953e769f6168325ed6f9bfe6981e9a249405d[m
+Author: Ethan Yong <ethanmyong@gmail.com>
+Date:   Thu Apr 30 21:14:00 2026 +1000
+
+    initial commit

@@ -4,17 +4,17 @@ import Link from "next/link";
 const LEAVES = ["🍁", "🍂", "🍁", "🍂", "🍁", "🍂", "🍁"];
 
 const FEATURES = [
+  { icon: "🏪", title: "Free Market Hub", body: "Type !fm anywhere to instantly teleport to the Free Market where all custom NPCs are set up — everything accessible from the moment you log in." },
+  { icon: "✨", title: "Skill Master", body: "Grab cross-class movement skills like Flash Jump, Haste and Teleport from Grendel — mix abilities across jobs and build your character exactly how you want." },
+  { icon: "⚡", title: "Instant Job Advancement", body: "Talk to Vikan to advance jobs at the right levels. Skills are auto-maxed on advancement so you can play your class properly straight away." },
+  { icon: "🛍️", title: "All-in-One Shop", body: "Frederick stocks everything — early game and endgame gear, weapons, potions, scrolls, NX items, chairs and more, all in one place." },
+  { icon: "🗺️", title: "World Teleporter", body: "Spinel lets you jump straight to any town, party quest or boss entrance instantly. No running, no taxis." },
+  { icon: "💇", title: "Plastic Surgeon", body: "V. Isage can fully customise your hair, face and skin on the spot — free, instant, no coupons needed." },
   { icon: "⚔️", title: "All Classes", body: "Warriors, Mages, Archers, Thieves, and Pirates — every v83 class and job advancement available." },
   { icon: "👹", title: "All Bosses", body: "Zakum, Horntail, Papulatus, Chaos Zakum, Pink Bean and more. All bosses accessible and farmable." },
   { icon: "🎉", title: "Party Quests", body: "Kerning PQ, Ludibrium PQ, Orbis PQ, Magatia PQ and all classic party quests fully working." },
-  { icon: "🗺️", title: "Full World", body: "Every map, town, and dungeon — Maple Island, Victoria Island, Ossyria, Ludus Lake, and beyond." },
   { icon: "🌿", title: "x10 EXP & Mesos", body: "Boosted rates so you can progress at a satisfying pace without the grind being a second job." },
   { icon: "💰", title: "Free NX Cash", body: "Earn NX in-game to spend on cosmetics. No real money needed — ever." },
-  { icon: "🛍️", title: "Frederick's All-in-One Shop", body: "Find Frederick the store banker in the Free Market — he stocks everything you need in one place." },
-  { icon: "💇", title: "Dr. Lenu — Cosmetic NPC", body: "Change your hair, face, and skin colour for free anytime. Customise your look whenever you want." },
-  { icon: "🏰", title: "Guilds & Alliances", body: "Form or join a guild, build your alliance, and compete on the leaderboards." },
-  { icon: "📖", title: "Monster Book", body: "Hunt monsters to complete your collection and unlock card set bonuses." },
-  { icon: "🎨", title: "Full Cash Shop", body: "Browse the full v83 Cash Shop catalogue — all cosmetics, pets, and mounts available free." },
   { icon: "🤝", title: "Active Community", body: "Small, friendly server. New players always welcome." },
 ];
 
@@ -79,14 +79,12 @@ export default function Home() {
             {siteName}
           </h1>
 
-          <p className="text-slate-400 text-lg md:text-xl max-w-lg mb-3 leading-relaxed">
-            A classic v83 MapleStory private server.<br />
-            Built for nostalgia. Free to play. Free NX cash.<br />
-            x10 exp and x10 mesos.
-          </p>
+          <h2 className="font-cinzel text-xl md:text-2xl font-bold text-slate-100 mb-4">
+            Welcome to UmamiMS!
+          </h2>
 
-          <p className="text-slate-600 text-sm mb-10">
-            Create an account below and start your adventure!
+          <p className="text-slate-400 text-base md:text-lg max-w-xl mb-10 leading-relaxed">
+            A v83 MapleStory private server built for the love of the game. Free to play, free NX, x10 rates. No cash walls, no BS — just Maple the way it used to be.
           </p>
 
           {/* CTAs */}
