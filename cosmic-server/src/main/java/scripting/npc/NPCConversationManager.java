@@ -23,6 +23,7 @@ package scripting.npc;
 
 import client.Character;
 import client.*;
+import client.keybind.KeyBinding;
 import client.inventory.Item;
 import client.inventory.ItemFactory;
 import client.inventory.Pet;
@@ -1098,5 +1099,27 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         }
 
         return false;
+    }
+
+    public void maxAllSkills() {
+        for (Data skill_ : DataProviderFactory.getDataProvider(WZFiles.STRING).getData("Skill.img").getChildren()) {
+            try {
+                Skill skill = SkillFactory.getSkill(Integer.parseInt(skill_.getName()));
+                getPlayer().changeSkillLevel(skill, (byte) skill.getMaxLevel(), skill.getMaxLevel(), -1);
+            } catch (NumberFormatException | NullPointerException ignored) {
+            }
+        }
+    }
+
+    public void teachSkillMax(int skillId) {
+        Skill skill = SkillFactory.getSkill(skillId);
+        if (skill != null) {
+            teachSkill(skillId, (byte) skill.getMaxLevel(), (byte) skill.getMaxLevel(), -1);
+        }
+    }
+
+    public void changeKeyBinding(int key, int type, int action) {
+        getPlayer().changeKeybinding(key, new KeyBinding(type, action));
+        getPlayer().sendKeymap();
     }
 }

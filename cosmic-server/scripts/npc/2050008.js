@@ -1,6 +1,7 @@
 /*
     UmamiMS — Job Advancement NPC
-    NPC: Dalair (9000066)
+    NPC ID: 9000003
+    Place this NPC in the Free Market.
 
     - Advances jobs at correct levels (10/30/60/120)
     - Handles class & subclass selection menus
@@ -91,7 +92,7 @@ function action(mode, type, selection) {
     var tier = getJobTier(jobId);
 
     if (status == 0) {
-        cm.sendSimple("Welcome, #b#h ##k. I am Dalair. What brings you before me?\r\n#b\r\n#L0#Advance my job\r\n#L1#Fix my AP (reset ability points)\r\n#L2#Nothing, thanks");
+        cm.sendSimple("Hey #b#h ##k, I'm the Job Master. What can I do for you?\r\n#b\r\n#L0#Advance my job\r\n#L1#Fix my AP (reset ability points)\r\n#L2#Nothing, thanks");
         status++;
 
     } else if (status == 1) {
@@ -101,21 +102,21 @@ function action(mode, type, selection) {
         if (mode_selected == 1) {
             // Fix AP
             cm.resetStats();
-            cm.sendOk("Done. Your ability points have been redistributed.");
+            cm.sendOk("Done! Your ability points have been redistributed.");
             cm.dispose();
             return;
         }
 
         // Job advancement path
         if (tier == 4) {
-            cm.sendOk("You have already reached your 4th job. There is nothing left for me to grant you.");
+            cm.sendOk("You've already reached your 4th job — you're at the top!");
             cm.dispose();
             return;
         }
 
         var levelReq = getLevelReq(tier);
         if (level < levelReq) {
-            cm.sendOk("You must reach level #r" + levelReq + "#k before I can advance you. Train harder.");
+            cm.sendOk("You need to be at least level #r" + levelReq + "#k to advance. Keep training!");
             cm.dispose();
             return;
         }
@@ -149,19 +150,20 @@ function action(mode, type, selection) {
     } else if (status == 2) {
         // Came from Beginner class picker or multi-choice subclass
         if (jobId == 0) {
+            // Beginner class selection
             var classJobs = [100, 200, 300, 400, 500];
             chosen_job = classJobs[selection];
         } else {
             next_jobs = getNextJobs(jobId);
             chosen_job = next_jobs[selection][0];
         }
-        cm.sendYesNo("Ready to advance? This cannot be undone.");
+        cm.sendYesNo("Ready to advance? This can't be undone.");
         status = 10;
 
     } else if (status == 10) {
         // Confirm and execute
         cm.changeJobById(chosen_job);
-        cm.sendOk("It is done. Rise, #b#h ##k. Make your class proud.");
+        cm.sendOk("Congratulations on your advancement! Make us proud, #b#h ##k.");
         cm.dispose();
     }
 }

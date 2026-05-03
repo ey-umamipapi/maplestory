@@ -1,0 +1,48 @@
+NPC ID,Name,Visual / Vibe,Current Function,Importance,Notes / Status
+,,,,,
+=== UMAMIAPI CUSTOM NPCs (Modified for this server) ===,,,,,
+2050008,General Maestro,Military general / soldier uniform — authoritative army commander,Job Advancement NPC — advances jobs at lv 10/30/60/120; class & subclass picker; AP reset option,HIGH — core feature,"BROKEN: WZ baked-in Omega Sector dialogue overrides the JS script. Needs fix (different NPC ID) or WZ edit"
+9000020,Spinel,Elegant purple fairy / sprite — looks otherworldly and magical,"World Warp NPC — free teleport to all Towns, Boss maps, and Party Quests",HIGH — core QoL feature,Custom UmamiMS script. Works correctly
+9000025,Grendel the Really Old,Ancient white-bearded mage in wizard robes — wise old sage,"Cross-class Skill NPC — teaches Flash Jump, Haste, Teleport, Hyper Body, Holy Symbol, Mystic Door, Magic Guard, Speed Infusion, Dark Sight, Time Leap at max level. Lets you pick a keybind.",HIGH — core feature,Custom UmamiMS script. Works correctly
+9030000,Fredrick,Portly merchant in green — classic shopkeeper vibe,AIO Shop — sells equipment / weapons / scrolls / NX items / potions across categorised sub-shops,HIGH — core feature,Custom UmamiMS script. Price scaling by item level pending implementation
+9200100,Dr. Lenu,Female scientist / doctor in white lab coat — clinical and professional,Full cosmetics NPC — hair styles/colours (M/F) + face styles/colours + skin tones. No coupons.,MEDIUM — was our cosmetics NPC,Replaced in FM by V. Isage (9201069). Still exists in Henesys via default spawn
+9201069,V. Isage,Stylish NLC makeup artist — edgy / fashion-forward look,Full cosmetics NPC — identical feature set to Dr. Lenu. Male & female hair + face + skin. No coupons.,HIGH — active cosmetics NPC in FM,Custom UmamiMS script replacing original V. Isage coupon script. Works correctly
+9030200,(No WZ match — invalid ID),N/A — no valid WZ model,Old skill NPC script (Flash Jump / Haste / Teleport only — early version),LOW — superseded,Script is obsolete; 9000025 does everything this did + more. Safe to leave or delete the file
+,,,,,
+=== STOCK 9000xxx NPCs (Server utility / event NPCs) ===,,,,,
+9000000,Paul,Young male NPC — plain villager look,No script (empty),LOW,No custom function
+9000001,Jean,Young female NPC — plain village girl,Talks about waiting for her brother Paul. Story flavour only.,LOW,Original OdinMS dialogue. Not important to customise
+9000002,Pietro,Unnamed event NPC,Event utility (dispose/exit),LOW,OdinMS stock
+9000003,Vikan,Warrior-type male NPC — stocky fighter look,Job Advancement NPC (original) — SCRIPT DELETED; logic moved to 2050008.js,LOW — replaced,"Script deleted; 9000003.js no longer exists. If Vikan is still spawned, he'll have no script"
+9000004,Vikon,Male NPC — similar to Vikan,Event utility (dispose/exit),LOW,OdinMS stock
+9000007,Chun Ji,Young girl NPC — pigtails / child look,"Deflects players — 'Just a kid, don't talk to me'",LOW,Flavour NPC
+9000008,Mr. Pickall,Rugged adventurer type — looks like a locksmith,Opens locked boxes (pass locked box to unlock),LOW,Utility but niche
+9000009,Vikin,Unnamed male NPC,Lost treasure scroll event dialogue,LOW,Event NPC
+9000010,Pietra,Female NPC — gentle appearance,Event transport — tells you didn't win; warps you back,LOW,Event NPC
+9000011,Martin,Friendly male NPC — merchant type,Login streak reward NPC — prizes scale from 1-day to 60-day playtime rewards,MEDIUM,Active if login events are enabled
+9000012,Harry,Male NPC — relaxed / casual look,Event game host — sells wooden club (1 meso) and exits event,LOW,Event only
+9000013,Tony,Young male NPC — friendly adventurer,Escort to event area — party / event flavour,LOW,Event NPC
+9000017,Coco,Cute animal-themed NPC (deer/reindeer look),HeavenMS script — uses sendDefault (system message),LOW,HeavenMS stock; not actively used
+9000019,Rock Paper Scissor Admin,Referee-style NPC — judge uniform,Rock/Paper/Scissors minigame admin — checks ETC inventory slot,LOW,Event minigame NPC
+9000021,Gaga,Goofy alien / UFO abductee character,Daily boss challenge recruiter — sends players into sequential boss fights,MEDIUM,Active if boss challenge events are enabled. Also the same Gaga from UFO story
+9000036,Agent E,Suited agent — MIB look (black suit),HeavenMS script — sendDefault,LOW,HeavenMS event stock
+9000037,Agent Meow,Cat-faced agent in suit — quirky,Boss training center completion reward — congratulates and warps out,LOW,Boss training center event
+9000038,Agent Kitty,Cat-faced agent — similar to Meow,Boss training center item reward distributor — gives prize sets per stage cleared,LOW,Boss training center event
+9000040,Dalair,Noble/knight look — elegant warrior type,Medal ranking system — currently shows 'unavailable' message,LOW,Disabled feature; medal rankings not working
+9000041,Donation Box,Donation/box NPC — inanimate object sprite,Medal ranking (same unavailable message),LOW,Disabled feature
+9000049,Fairytale Crackers,Fairy tale character — witch/cracker look,Jump Quest warp NPC — GM event only,LOW,Event NPC; only usable by GMs
+9001102,Baby Moon Bunny,Tiny bunny NPC — cute round white rabbit,Moon Bunny event — Gaga gets kidnapped story dialogue,LOW,Seasonal event NPC
+9001105,Grandpa Moon Bunny,Elderly bunny NPC — white rabbit with staff,Moon Bunny event — skin/hair changer for 3000 mesos (limited options),LOW,Seasonal event NPC
+,,,,,
+=== SHOP & STORAGE NPCs ===,,,,,
+9030100,Scrooge,Grumpy old merchant in top hat — classic miser look,Storage NPC — stores items for mesos,MEDIUM,Stock HeavenMS storage. Should keep unless you add storage elsewhere
+,,,,,
+=== COSMETICS / STYLE NPCs ===,,,,,
+9200100,Dr. Lenu,Female doctor in white coat — clinical stylist,Full cosmetics (hair/face/skin) — no coupons. Original UmamiMS cosmetics script.,MEDIUM,Still active in Henesys default spawn. V. Isage replaced her in FM
+9200101,Dr. Rhomes,Male doctor — white coat / similar to Lenu,No custom script (stock),LOW,Has no active custom function
+9200102,Dr. Bosch,Male doctor NPC,No custom script (stock),LOW,Has no active custom function
+,,,,,
+=== NPC LIST NOTES ===,,,,,
+"Note: Scripts only exist for NPCs that have a .js file in scripts/npc/. NPCs without a script fall back to WZ baked-in dialogue (or say nothing).",,,,,
+"Note: To spawn an NPC use !pnpc [id]. To remove use !pnpcremove. Spawns saved in plife MySQL table.",,,,,
+"Note: Some NPC IDs (e.g. 9999999 / 9030200) have no valid WZ model — spawning them will crash the map.",,,,,

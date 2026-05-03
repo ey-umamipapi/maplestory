@@ -1,6 +1,6 @@
 /*
     UmamiMS — Job Advancement NPC
-    NPC: Dalair (9000066)
+    NPC: Agent O (9000034)
 
     - Advances jobs at correct levels (10/30/60/120)
     - Handles class & subclass selection menus
@@ -12,7 +12,6 @@ var mode_selected = -1;  // 0 = advance, 1 = fixAP
 var next_jobs = null;
 var chosen_job = -1;
 
-// Returns the job tier (0=beginner, 1=1st, 2=2nd, 3=3rd, 4=4th)
 function getJobTier(jobId) {
     if (jobId == 0) return 0;
     if (jobId % 100 == 0) return 1;
@@ -30,20 +29,16 @@ function getLevelReq(tier) {
     return 999;
 }
 
-// Returns array of [jobId, name] choices for next advancement, or null if max
 function getNextJobs(jobId) {
     switch (jobId) {
-        // Beginner → 1st job (handled separately via class picker)
         case 0: return "pick_class";
 
-        // 1st → 2nd job subclass choices
         case 100: return [[110, "Fighter"], [120, "Page"], [130, "Spearman"]];
         case 200: return [[210, "F/P Wizard"], [220, "I/L Wizard"], [230, "Cleric"]];
         case 300: return [[310, "Hunter"], [320, "Crossbowman"]];
         case 400: return [[410, "Assassin"], [420, "Bandit"]];
         case 500: return [[510, "Brawler"], [520, "Gunslinger"]];
 
-        // 2nd → 3rd (auto, one path)
         case 110: return [[111, "Crusader"]];
         case 120: return [[121, "White Knight"]];
         case 130: return [[131, "Dragon Knight"]];
@@ -57,7 +52,6 @@ function getNextJobs(jobId) {
         case 510: return [[511, "Marauder"]];
         case 520: return [[521, "Outlaw"]];
 
-        // 3rd → 4th (auto, one path)
         case 111: return [[112, "Hero"]];
         case 121: return [[122, "Paladin"]];
         case 131: return [[132, "Dark Knight"]];
@@ -71,7 +65,7 @@ function getNextJobs(jobId) {
         case 511: return [[512, "Buccaneer"]];
         case 521: return [[522, "Corsair"]];
 
-        default: return null; // max job or unknown
+        default: return null;
     }
 }
 
@@ -91,7 +85,7 @@ function action(mode, type, selection) {
     var tier = getJobTier(jobId);
 
     if (status == 0) {
-        cm.sendSimple("Welcome, #b#h ##k. I am Dalair. What brings you before me?\r\n#b\r\n#L0#Advance my job\r\n#L1#Fix my AP (reset ability points)\r\n#L2#Nothing, thanks");
+        cm.sendSimple("...\r\n#b#h ##k. We've been expecting you. What do you need?\r\n#b\r\n#L0#Advance my job\r\n#L1#Fix my AP (reset ability points)\r\n#L2#Nothing");
         status++;
 
     } else if (status == 1) {
@@ -99,45 +93,41 @@ function action(mode, type, selection) {
         mode_selected = selection;
 
         if (mode_selected == 1) {
-            // Fix AP
             cm.resetStats();
             cm.sendOk("Done. Your ability points have been redistributed.");
             cm.dispose();
             return;
         }
 
-        // Job advancement path
         if (tier == 4) {
-            cm.sendOk("You have already reached your 4th job. There is nothing left for me to grant you.");
+            cm.sendOk("You've reached the top. There's nothing left for the Order to give you.");
             cm.dispose();
             return;
         }
 
         var levelReq = getLevelReq(tier);
         if (level < levelReq) {
-            cm.sendOk("You must reach level #r" + levelReq + "#k before I can advance you. Train harder.");
+            cm.sendOk("You're not ready. Come back at level #r" + levelReq + "#k.");
             cm.dispose();
             return;
         }
 
         if (jobId == 0) {
-            // Beginner picking a class
-            cm.sendSimple("Choose your path:#b\r\n#L0#Warrior\r\n#L1#Magician\r\n#L2#Archer\r\n#L3#Rogue\r\n#L4#Pirate");
+            cm.sendSimple("Choose your path. Choose carefully.#b\r\n#L0#Warrior\r\n#L1#Magician\r\n#L2#Archer\r\n#L3#Rogue\r\n#L4#Pirate");
             status++;
         } else {
             next_jobs = getNextJobs(jobId);
             if (next_jobs == null) {
-                cm.sendOk("Something went wrong. Please contact an admin.");
+                cm.sendOk("Something went wrong. Contact an admin.");
                 cm.dispose();
                 return;
             }
             if (next_jobs.length == 1) {
-                // Only one path — confirm directly
                 chosen_job = next_jobs[0][0];
-                cm.sendYesNo("Ready to advance to #b" + next_jobs[0][1] + "#k?");
-                status = 10; // jump to confirm state
+                cm.sendYesNo("Advance to #b" + next_jobs[0][1] + "#k. Confirm?");
+                status = 10;
             } else {
-                var str = "Choose your advancement:#b";
+                var str = "Select your advancement:#b";
                 for (var i = 0; i < next_jobs.length; i++) {
                     str += "\r\n#L" + i + "#" + next_jobs[i][1] + "#l";
                 }
@@ -147,7 +137,6 @@ function action(mode, type, selection) {
         }
 
     } else if (status == 2) {
-        // Came from Beginner class picker or multi-choice subclass
         if (jobId == 0) {
             var classJobs = [100, 200, 300, 400, 500];
             chosen_job = classJobs[selection];
@@ -155,13 +144,12 @@ function action(mode, type, selection) {
             next_jobs = getNextJobs(jobId);
             chosen_job = next_jobs[selection][0];
         }
-        cm.sendYesNo("Ready to advance? This cannot be undone.");
+        cm.sendYesNo("This cannot be undone. Proceed?");
         status = 10;
 
     } else if (status == 10) {
-        // Confirm and execute
         cm.changeJobById(chosen_job);
-        cm.sendOk("It is done. Rise, #b#h ##k. Make your class proud.");
+        cm.sendOk("It is done. The Order recognises you, #b#h ##k.");
         cm.dispose();
     }
 }
