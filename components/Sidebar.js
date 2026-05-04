@@ -37,7 +37,7 @@ export default function Sidebar({ siteName, logo }) {
   );
 
   return (
-    <aside className="w-56 backdrop-blur border-r p-4 overflow-y-auto max-h-screen flex flex-col gap-6" style={{ background: "var(--sidebar-bg)", borderColor: "var(--border-color)" }}>
+    <aside className="w-56 backdrop-blur border-r p-4 flex flex-col gap-6 self-stretch" style={{ background: "var(--sidebar-bg)", borderColor: "var(--border-color)" }}>
       {/* Logo Section */}
       <Link href="/" className="flex flex-col items-center justify-center py-4 mb-2 hover:opacity-80 transition-opacity gap-2">
         <img src="/umamims-logo.png" alt={siteName} className="h-24 object-contain" />
