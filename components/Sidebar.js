@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Sidebar({ siteName, logo }) {
+export default function Sidebar({ siteName, logo, onNavigate }) {
   const [expandedSections, setExpandedSections] = useState({
     database: true,
     tools: true,
@@ -18,6 +18,7 @@ export default function Sidebar({ siteName, logo }) {
   const SectionLink = ({ href, label, icon }) => (
     <Link
       href={href}
+      onClick={onNavigate}
       className="pl-4 py-2 text-sm transition-colors flex items-center gap-2 rounded-lg mx-1 hover:text-maple-accent"
       style={{ color: 'var(--text-muted)' }}
       onMouseEnter={e => e.currentTarget.style.background = 'var(--sidebar-hover)'}
@@ -47,7 +48,7 @@ export default function Sidebar({ siteName, logo }) {
   return (
     <aside className="w-56 backdrop-blur border-r p-4 flex flex-col gap-6 self-stretch" style={{ background: "var(--sidebar-bg)", borderColor: "var(--border-color)" }}>
       {/* Logo Section */}
-      <Link href="/" className="flex flex-col items-center justify-center py-4 mb-2 hover:opacity-80 transition-opacity gap-2">
+      <Link href="/" onClick={onNavigate} className="flex flex-col items-center justify-center py-4 mb-2 hover:opacity-80 transition-opacity gap-2">
         <img src="/favicon_clear.png" alt={siteName} className="h-24 object-contain" />
         <span className="font-visby text-sm" style={{ color: 'var(--text-muted)' }}>{siteName}</span>
       </Link>
