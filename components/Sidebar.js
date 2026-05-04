@@ -96,6 +96,11 @@ export default function Sidebar({ siteName, logo }) {
         )}
       </div>
 
+      {/* Legal */}
+      <div className="mt-auto pt-4">
+        <SectionLink href="/legal" label="Legal & Disclaimer" icon="⚖️" />
+      </div>
+
     </aside>
   );
 }
