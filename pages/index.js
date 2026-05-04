@@ -49,7 +49,7 @@ export default function Home() {
           </p>
 
           {/* CTAs */}
-          <div className="flex gap-4 flex-wrap justify-center mb-20">
+          <div className="flex gap-4 flex-wrap justify-center">
             <Link href="/register" className="btn-maple px-8 py-3.5 rounded-xl text-white text-lg font-bold">
               Create Account
             </Link>
@@ -60,16 +60,16 @@ export default function Home() {
               Login
             </Link>
           </div>
+        </main>
 
-          {/* ── Divider ───────────────────────────────────────────────────── */}
-          <div className="maple-divider w-full max-w-2xl mb-14" />
-
-          {/* ── What's in UmamiMS ───────────────────────────────────────── */}
-          <div className="w-full max-w-4xl">
+        {/* ── What's in UmamiMS ─────────────────────────────────────────────── */}
+        <section className="w-full px-6 py-16" style={{ background: 'var(--bg-secondary)' }}>
+          <div className="max-w-5xl mx-auto">
+            <div className="maple-divider mb-12" />
             <h2 className="font-visby text-2xl font-bold text-maple-yellow mb-10 text-center">
               ✨ What&apos;s in UmamiMS
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
               {FEATURES.map(({ icon, title, body }) => (
                 <div key={title} className="maple-card rounded-2xl p-5 flex gap-4 items-start">
                   <span className="text-2xl flex-shrink-0">{icon}</span>
@@ -81,7 +81,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </main>
+        </section>
 
         {/* ── Footer ────────────────────────────────────────────────────────── */}
         <footer className="text-center py-6 text-slate-700 border-t border-maple-border/20 text-sm">
