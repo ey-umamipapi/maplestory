@@ -43,6 +43,9 @@ export default function Home() {
             Server Online
           </div>
 
+          {/* Logo */}
+          <img src="/umamims-logo.png" alt={siteName} className="h-40 md:h-52 object-contain mb-2" />
+
           {/* Title */}
           <h1 className="font-visby text-7xl md:text-9xl font-bold mb-4 maple-gradient-text drop-shadow-[0_0_40px_rgba(233,69,96,0.3)] tracking-wide">
             {siteName}
