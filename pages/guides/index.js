@@ -22,8 +22,8 @@ const GUIDES = [
   {
     slug: "classes",
     icon: "⚔️",
-    title: "Explorer Classes",
-    desc: "Full breakdown of every Warrior, Mage, Bowman, Thief, and Pirate class. Pick the right one for your playstyle.",
+    title: "Classes Guide",
+    desc: "Full breakdown of every Explorer, Cygnus Knight, and Aran class. Pick the right one for your playstyle.",
     badge: "All Classes",
     badgeColor: "text-purple-400 border-purple-400/40 bg-purple-400/10",
   },

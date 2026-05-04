@@ -8,7 +8,7 @@ const LEAVES = ["🍁", "🍂", "🍁", "🍂", "🍁", "🍂", "🍁"];
 const FEATURES = [
   { icon: "🌿", title: "x10 EXP & Mesos", body: "Boosted rates so you can actually progress in a session. No burning an entire weekend just to see a level-up." },
   { icon: "💰", title: "Free NX Cash", body: "Earn NX in-game to spend on cosmetics. No real money needed — ever." },
-  { icon: "⚔️", title: "All Classes", body: "Warriors, Mages, Archers, Thieves, and Pirates — every v83 class and job advancement available." },
+  { icon: "⚔️", title: "All Classes", body: "Warriors, Mages, Archers, Thieves, Pirates, Cygnus Knights, and Aran — every v83 class and job advancement available." },
   { icon: "👹", title: "All Bosses", body: "Zakum, Horntail, Papulatus, Chaos Zakum, Pink Bean and more. All bosses accessible and farmable." },
   { icon: "🎉", title: "Party Quests", body: "Kerning PQ, Ludibrium PQ, Orbis PQ, Magatia PQ and all classic party quests fully working." },
   { icon: "⚡", title: "Instant Job Advancement", body: "Talk to Vikan to advance jobs at the right levels. Skills are auto-maxed on advancement so you can play your class properly straight away." },
@@ -61,10 +61,7 @@ export default function Home() {
             <Link href="/register" className="btn-maple px-8 py-3.5 rounded-xl text-white text-lg font-bold">
               Create Account
             </Link>
-            <Link
-              href="/download"
-              className="px-8 py-3.5 rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-lg font-bold transition-all shadow-md hover:shadow-blue-400/40"
-            >
+            <Link href="/download" className="btn-blue px-8 py-3.5 rounded-xl text-white text-lg font-bold">
               Download Client
             </Link>
           </div>

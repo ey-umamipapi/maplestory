@@ -102,6 +102,46 @@ const CLASSES = [
     skills: [5001001, 5110001, 5121003, 5201006, 5221006],
     tips: ["Buccaneer benefits from STR — simpler to gear than most.", "Corsair summons stack with your direct attacks for high effective DPS.", "Both paths get Haste from Grendel at the Free Market."],
   },
+  {
+    name: "Cygnus Knights",
+    icon: "🌟",
+    render: `${MEOW}/renders/dawn-warrior.png`,
+    stat: "Varies",
+    town: "Ereve",
+    color: "text-sky-400",
+    border: "border-sky-400/30",
+    bg: "bg-sky-400/5",
+    difficulty: "Easy",
+    diffColor: "text-green-500",
+    desc: "Elite knights sworn to protect Empress Cygnus. Each Knight mirrors an Explorer class but comes with exclusive Cygnus-only skills and unique aesthetics. They level fast and hit hard. On UmamiMS, talk to Vikan to advance.",
+    paths: [
+      { name: "Noblesse → Dawn Warrior", style: "Sword Knight", desc: "Mirrors the Warrior. Uses swords with Cygnus-exclusive Soul skills. Strong stable melee DPS with a noble flair." },
+      { name: "Noblesse → Blaze Wizard", style: "Fire Mage", desc: "Mirrors the Mage. Blazing elemental spells and Orbital Flame. Great AoE for training maps." },
+      { name: "Noblesse → Wind Archer", style: "Bow Knight", desc: "Mirrors the Bowman. Wind-based ranged attacks. Song of Heaven shreds through mobs at range." },
+      { name: "Noblesse → Night Walker", style: "Shadow Thief", desc: "Mirrors the Thief. Shadow-based star throwing. Nimble and deadly — a darker take on the Night Lord." },
+      { name: "Noblesse → Thunder Breaker", style: "Lightning Brawler", desc: "Mirrors the Pirate. Lightning-infused melee with fast combos. Unique and flashy playstyle." },
+    ],
+    skills: [1000, 11001001, 12001001, 13001001, 14001001],
+    tips: ["Cygnus Knights cap at level 120 — perfect for focused play.", "Each CK path has unique 4th job skills not available to Explorers.", "Talk to Vikan in the Free Market to unlock CK job advancements on UmamiMS."],
+  },
+  {
+    name: "Aran",
+    icon: "🏔️",
+    render: `${MEOW}/renders/aran.png`,
+    stat: "STR",
+    town: "Rien",
+    color: "text-cyan-400",
+    border: "border-cyan-400/30",
+    bg: "bg-cyan-400/5",
+    difficulty: "Medium",
+    diffColor: "text-yellow-500",
+    desc: "A legendary hero reawakened. Aran uses a polearm with a unique combo system — chain attacks together to build combo points and unleash devastating finishers. High skill cap, incredible payoff.",
+    paths: [
+      { name: "Aran → Aran (2nd) → Aran (3rd) → Aran (4th)", style: "Combo Warrior", desc: "A single path that evolves through 4 job advancements. Each tier unlocks new combo skills and finishers. Full Swing and Combo Smash are standout attacks for mass clearing." },
+    ],
+    skills: [21000000, 21001001, 21100000, 21110000, 21120011],
+    tips: ["Build your combo count before using finisher skills for maximum damage.", "Aran's Combo Drain heals HP based on combo — excellent for solo bossing.", "Flash Jump-equivalent available via Grendel in the Free Market."],
+  },
 ];
 
 function SkillIcon({ id }) {
@@ -136,8 +176,8 @@ export default function ClassesGuide() {
           </div>
 
           <div className="mb-10">
-            <h1 className="font-visby text-4xl font-bold maple-gradient-text mb-2">⚔️ Explorer Classes</h1>
-            <p style={{ color: 'var(--text-muted)' }}>All five v83 Explorer classes, their paths, and what makes them tick.</p>
+            <h1 className="font-visby text-4xl font-bold maple-gradient-text mb-2">⚔️ Classes</h1>
+            <p style={{ color: 'var(--text-muted)' }}>All v83 classes — Explorers, Cygnus Knights, and Aran — their paths, and what makes them tick.</p>
             <p className="text-sm mt-2" style={{ color: 'var(--text-muted)' }}>
               On UmamiMS, you can grab extra movement skills (Flash Jump, Haste, Teleport) from{" "}
               <strong style={{ color: 'var(--text-heading)' }}>Grendel</strong> in the Free Market — so pick whichever class excites you.

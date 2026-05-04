@@ -41,6 +41,7 @@
   --card-shadow:   0 2px 16px rgba(180,90,30,0.08);
   --text-muted:    #64748b;
   --text-heading:  #0f172a;
+  --sidebar-hover: rgba(180,100,30,0.08);
 }
 
 html.theme-night {
@@ -56,6 +57,7 @@ html.theme-night {
   --card-shadow:   0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(233,69,96,0.15);
   --text-muted:    #94a3b8;
   --text-heading:  #e2e8f0;
+  --sidebar-hover: rgba(233,69,96,0.08);
 }
 
 /* ── Base ─────────────────────────────────────────────────────────────────────── */
@@ -217,6 +219,36 @@ html.theme-night .stars-bg::before {
   transition: left 0.4s ease;
 }
 .btn-maple:hover::after {
+  left: 125%;
+}
+
+/* ── Blue button (Download) ───────────────────────────────────────────────────── */
+.btn-blue {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 20px rgba(59,130,246,0.4);
+}
+.btn-blue:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(59,130,246,0.6);
+}
+.btn-blue:active {
+  transform: translateY(0);
+}
+.btn-blue::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: rgba(255,255,255,0.12);
+  transform: skewX(-20deg);
+  transition: left 0.4s ease;
+}
+.btn-blue:hover::after {
   left: 125%;
 }
 

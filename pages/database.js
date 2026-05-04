@@ -124,7 +124,7 @@ function Img({ src, alt, className }) {
 
 // ── Cards ─────────────────────────────────────────────────────────────────────
 
-function MonsterCard({ id, name, th }) {
+function MonsterCard({ id, name, th, level, isBoss }) {
   return (
     <div className={`rounded-xl p-3 flex flex-col items-center gap-2 text-center transition-all ${th.card} ${th.cardHov}`}>
       <div className="w-16 h-16 flex items-center justify-center">
@@ -132,6 +132,10 @@ function MonsterCard({ id, name, th }) {
       </div>
       <div className="w-full">
         <p className={`text-xs font-semibold truncate mb-0.5 ${th.text}`}>{name}</p>
+        <div className="flex items-center justify-center gap-1.5 mb-1.5">
+          {level && <span className={`text-xs font-mono ${th.muted}`}>Lv.{level}</span>}
+          {isBoss && <span className="text-xs px-1.5 py-0 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/30 font-bold">BOSS</span>}
+        </div>
         <p className={`text-xs font-mono mb-2 ${th.muted}`}>#{id}</p>
         <div className="flex flex-wrap gap-1 justify-center">
           <CopyBadge label={`!spawn ${id}`} value={`!spawn ${id}`} th={th} />
@@ -160,10 +164,21 @@ function NpcCard({ id, name, th }) {
   );
 }
 
+const MEOW_MAPS = "https://meowdb.com/msclassic/maps/minimaps";
+const minimapImg = (id) => `${MEOW_MAPS}/${String(id).padStart(9, "0")}.png`;
+
 function MapCard({ id, name, th }) {
   return (
     <div className={`rounded-xl p-3 flex items-center gap-3 transition-all ${th.card} ${th.cardHov}`}>
-      <span className="text-xl flex-shrink-0">🗺️</span>
+      <div className="w-16 h-12 flex-shrink-0 flex items-center justify-center overflow-hidden rounded-md bg-black/20">
+        <img
+          src={minimapImg(id)}
+          alt={name}
+          className="w-full h-full object-cover"
+          style={{ imageRendering: "pixelated" }}
+          onError={e => { e.target.style.display = "none"; e.target.parentElement.innerHTML = '<span style="font-size:1.5rem">🗺️</span>'; }}
+        />
+      </div>
       <div className="min-w-0 flex-1">
         <p className={`text-xs font-semibold truncate mb-0.5 ${th.text}`}>{name}</p>
         <p className={`text-xs font-mono mb-1.5 ${th.muted}`}>#{id}</p>
@@ -200,6 +215,7 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
   const [maxLv, setMaxLv] = useState(200);
   const [showBossOnly, setShowBossOnly] = useState(false);
   const [mapRegion, setMapRegion] = useState("All");
+  const [pageSize, setPageSize] = useState(60);
 
   // Default to system theme on mount
   useEffect(() => { setThemeName(getSystemTheme()); }, []);
@@ -252,8 +268,8 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
     return result;
   }, [activeData, search, tab, minLv, maxLv, showBossOnly, mapRegion, metadata]);
 
-  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
-  const visible    = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+  const totalPages = Math.ceil(filtered.length / pageSize);
+  const visible    = filtered.slice(page * pageSize, (page + 1) * pageSize);
 
   function switchTab(t) { setTab(t); setSearch(""); setPage(0); setMapRegion("All"); }
   function onSearch(e)   { setSearch(e.target.value); setPage(0); }
@@ -394,16 +410,36 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
             )}
           </div>
 
-          {/* Count */}
-          <p className={`text-xs mb-4 ${th.muted}`}>
-            {filtered.length.toLocaleString()} results
-            {totalPages > 1 && ` — page ${page + 1} of ${totalPages}`}
-          </p>
+          {/* Count + Page size */}
+          <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+            <p className={`text-xs ${th.muted}`}>
+              {filtered.length.toLocaleString()} results
+              {totalPages > 1 && ` — page ${page + 1} of ${totalPages}`}
+            </p>
+            <div className="flex items-center gap-1">
+              <span className={`text-xs ${th.muted}`}>Show:</span>
+              {[50, 100, 250].map(n => (
+                <button
+                  key={n}
+                  onClick={() => { setPageSize(n); setPage(0); }}
+                  className={`px-2 py-0.5 rounded text-xs font-medium border transition-all ${
+                    pageSize === n ? th.tabAct : th.tabInact
+                  }`}
+                >{n}</button>
+              ))}
+            </div>
+          </div>
 
           {/* Grid */}
           {tab === "Monsters" && (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
-              {visible.map((e) => <MonsterCard key={e.id} {...e} th={th} />)}
+              {visible.map((e) => (
+                <MonsterCard
+                  key={e.id} {...e} th={th}
+                  level={metadata?.mobLevels?.[e.id]}
+                  isBoss={!!metadata?.bosses?.[e.id]}
+                />
+              ))}
             </div>
           )}
           {tab === "NPCs" && (

@@ -16,7 +16,13 @@ export default function Sidebar({ siteName, logo }) {
   };
 
   const SectionLink = ({ href, label, icon }) => (
-    <Link href={href} className="pl-4 py-2 text-sm hover:text-maple-accent transition-colors flex items-center gap-2" style={{ color: 'var(--text-muted)' }}>
+    <Link
+      href={href}
+      className="pl-4 py-2 text-sm transition-colors flex items-center gap-2 rounded-lg mx-1 hover:text-maple-accent"
+      style={{ color: 'var(--text-muted)' }}
+      onMouseEnter={e => e.currentTarget.style.background = 'var(--sidebar-hover)'}
+      onMouseLeave={e => e.currentTarget.style.background = ''}
+    >
       <span className="text-xs">{icon}</span>
       {label}
     </Link>
@@ -25,8 +31,10 @@ export default function Sidebar({ siteName, logo }) {
   const SectionHeader = ({ label, section, icon }) => (
     <button
       onClick={() => toggleSection(section)}
-      className="font-visby w-full px-3 py-2.5 text-xs font-bold uppercase tracking-widest hover:text-maple-accent transition-colors flex items-center justify-between hover:bg-black/5 rounded"
+      className="font-visby w-full px-3 py-2.5 text-xs font-bold uppercase tracking-widest hover:text-maple-accent transition-colors flex items-center justify-between rounded-lg"
       style={{ color: 'var(--text-muted)' }}
+      onMouseEnter={e => e.currentTarget.style.background = 'var(--sidebar-hover)'}
+      onMouseLeave={e => e.currentTarget.style.background = ''}
     >
       <span className="flex items-center gap-2">
         <span>{icon}</span>
@@ -41,7 +49,7 @@ export default function Sidebar({ siteName, logo }) {
       {/* Logo Section */}
       <Link href="/" className="flex flex-col items-center justify-center py-4 mb-2 hover:opacity-80 transition-opacity gap-2">
         <img src="/favicon_clear.png" alt={siteName} className="h-24 object-contain" />
-        <span className="font-visby text-sm text-slate-700">{siteName}</span>
+        <span className="font-visby text-sm" style={{ color: 'var(--text-muted)' }}>{siteName}</span>
       </Link>
 
       <div className="maple-divider" />
