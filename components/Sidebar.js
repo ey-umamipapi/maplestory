@@ -96,10 +96,6 @@ export default function Sidebar({ siteName, logo }) {
         )}
       </div>
 
-      {/* Footer */}
-      <div className="mt-auto pt-4 border-t border-slate-200">
-        <p className="text-xs text-center mt-4" style={{ color: 'var(--text-muted)' }}>v83 • Just for fun</p>
-      </div>
     </aside>
   );
 }
