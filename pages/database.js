@@ -164,11 +164,14 @@ function SkillCard({ id, name, desc, th }) {
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-export default function Database({ mobs, npcs, maps, skills }) {
+export default function Database({ mobs, npcs, maps, skills, metadata }) {
   const [themeName, setThemeName] = useState("night");
   const [tab, setTab]   = useState("Monsters");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
+  const [minLv, setMinLv] = useState(1);
+  const [maxLv, setMaxLv] = useState(200);
+  const [showBossOnly, setShowBossOnly] = useState(false);
 
   // Default to system theme on mount
   useEffect(() => { setThemeName(getSystemTheme()); }, []);
@@ -179,12 +182,32 @@ export default function Database({ mobs, npcs, maps, skills }) {
   const activeData = data[tab] ?? [];
 
   const filtered = useMemo(() => {
+    let result = activeData;
     const q = search.toLowerCase().trim();
-    if (!q) return activeData;
-    return activeData.filter(
-      (e) => e.name.toLowerCase().includes(q) || String(e.id).includes(q)
-    );
-  }, [activeData, search]);
+
+    // Search filter
+    if (q) {
+      result = result.filter(
+        (e) => e.name.toLowerCase().includes(q) || String(e.id).includes(q)
+      );
+    }
+
+    // Monster-specific filters
+    if (tab === "Monsters" && metadata) {
+      result = result.filter((mob) => {
+        // Level filter
+        const lvl = metadata.mobLevels[mob.id] || 1;
+        if (lvl < minLv || lvl > maxLv) return false;
+
+        // Boss filter
+        if (showBossOnly && !metadata.bosses[mob.id]) return false;
+
+        return true;
+      });
+    }
+
+    return result;
+  }, [activeData, search, tab, minLv, maxLv, showBossOnly, metadata]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const visible    = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
@@ -268,16 +291,58 @@ export default function Database({ mobs, npcs, maps, skills }) {
             ))}
           </div>
 
-          {/* Search */}
-          <div className="relative mb-5 max-w-sm">
-            <span className={`absolute left-3 top-1/2 -translate-y-1/2 text-sm ${th.muted}`}>🔍</span>
-            <input
-              type="text"
-              placeholder={`Search ${tab.toLowerCase()}...`}
-              value={search}
-              onChange={onSearch}
-              className={`w-full pl-9 pr-4 py-2 rounded-xl border text-sm focus:outline-none transition-all ${th.input}`}
-            />
+          {/* Search + Filters */}
+          <div className="mb-5 flex gap-3 items-end flex-wrap">
+            <div className="relative max-w-sm">
+              <span className={`absolute left-3 top-1/2 -translate-y-1/2 text-sm ${th.muted}`}>🔍</span>
+              <input
+                type="text"
+                placeholder={`Search ${tab.toLowerCase()}...`}
+                value={search}
+                onChange={onSearch}
+                className={`w-full pl-9 pr-4 py-2 rounded-xl border text-sm focus:outline-none transition-all ${th.input}`}
+              />
+            </div>
+
+            {/* Monster-only filters */}
+            {tab === "Monsters" && metadata && (
+              <>
+                <div className="flex flex-col gap-1">
+                  <label className={`text-xs font-semibold ${th.muted}`}>Level</label>
+                  <div className="flex gap-2 items-center">
+                    <input
+                      type="number"
+                      min={1}
+                      max={200}
+                      value={minLv}
+                      onChange={e => { setMinLv(Math.max(1, parseInt(e.target.value) || 1)); setPage(0); }}
+                      className={`w-16 px-2 py-1 rounded-lg border text-xs ${th.input}`}
+                      placeholder="Min"
+                    />
+                    <span className={th.muted}>–</span>
+                    <input
+                      type="number"
+                      min={1}
+                      max={200}
+                      value={maxLv}
+                      onChange={e => { setMaxLv(Math.min(200, parseInt(e.target.value) || 200)); setPage(0); }}
+                      className={`w-16 px-2 py-1 rounded-lg border text-xs ${th.input}`}
+                      placeholder="Max"
+                    />
+                  </div>
+                </div>
+
+                <label className={`flex items-center gap-2 cursor-pointer ${th.text} text-sm`}>
+                  <input
+                    type="checkbox"
+                    checked={showBossOnly}
+                    onChange={e => { setShowBossOnly(e.target.checked); setPage(0); }}
+                    className="w-4 h-4 rounded"
+                  />
+                  <span>Bosses only</span>
+                </label>
+              </>
+            )}
           </div>
 
           {/* Count */}
@@ -398,5 +463,16 @@ export async function getStaticProps() {
   const maps   = parseHandbook(path.join(hb, "Map.txt"));
   const skills = parseHandbook(path.join(hb, "Skill.txt"), true);
 
-  return { props: { mobs, npcs, maps, skills }, revalidate: 3600 };
+  // Load metadata (boss flags and mob levels)
+  let metadata = { bosses: {}, mobLevels: {} };
+  try {
+    const metaPath = path.join(process.cwd(), "public", "mob-metadata.json");
+    if (fs.existsSync(metaPath)) {
+      metadata = JSON.parse(fs.readFileSync(metaPath, "utf8"));
+    }
+  } catch (e) {
+    // Fallback to empty metadata if file not found
+  }
+
+  return { props: { mobs, npcs, maps, skills, metadata }, revalidate: 3600 };
 }
