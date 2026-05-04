@@ -1,12 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 
 const LEAVES = ["🍁", "🍂", "🍁", "🍂", "🍁", "🍂", "🍁"];
 
 export default function Login() {
   const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "UmamiMS";
+  const router = useRouter();
 
   const [form,    setForm]    = useState({ username: "", password: "" });
   const [error,   setError]   = useState("");
@@ -30,14 +32,15 @@ export default function Login() {
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || "Login failed.");
+        setError(data.error || "Login failed. Check your username and password.");
       } else {
         localStorage.setItem("ms_token", data.token);
         localStorage.setItem("ms_user", JSON.stringify(data.user));
-        setSuccess(`Welcome back, ${data.user.fullName || data.user.username}! You can now log in to the game client.`);
+        setSuccess(`Welcome back, ${data.user.fullName || data.user.username}!`);
+        setTimeout(() => router.push("/"), 1200);
       }
     } catch {
-      setError("Network error. Please try again.");
+      setError("Could not reach the server. Make sure you're connected, then try again.");
     } finally {
       setLoading(false);
     }
@@ -76,7 +79,8 @@ export default function Login() {
                   onChange={handleChange}
                   placeholder="Your game username"
                   required
-                  className="maple-input w-full bg-black/40 border border-maple-border/50 rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-600 text-sm"
+                  className="maple-input w-full rounded-lg px-4 py-2.5 text-sm border"
+                  style={{ background: 'var(--bg-secondary)', color: 'var(--text-heading)', borderColor: 'var(--border-color)' }}
                 />
               </div>
 
@@ -91,18 +95,19 @@ export default function Login() {
                   onChange={handleChange}
                   placeholder="••••••••"
                   required
-                  className="maple-input w-full bg-black/40 border border-maple-border/50 rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-600 text-sm"
+                  className="maple-input w-full rounded-lg px-4 py-2.5 text-sm border"
+                  style={{ background: 'var(--bg-secondary)', color: 'var(--text-heading)', borderColor: 'var(--border-color)' }}
                 />
               </div>
 
               {error && (
-                <div className="flex items-start gap-2 bg-red-950/60 border border-red-700/50 text-red-400 rounded-lg px-4 py-3 text-sm">
-                  <span className="mt-0.5">⚠️</span> {error}
+                <div className="flex items-start gap-2 rounded-lg px-4 py-3 text-sm border border-red-400/40 text-red-500 bg-red-50/80">
+                  <span>⚠️</span> {error}
                 </div>
               )}
               {success && (
-                <div className="flex items-start gap-2 bg-green-950/60 border border-green-700/50 text-green-400 rounded-lg px-4 py-3 text-sm">
-                  <span className="mt-0.5">✅</span> {success}
+                <div className="flex items-start gap-2 rounded-lg px-4 py-3 text-sm border border-green-400/40 text-green-600 bg-green-50/80">
+                  <span>✅</span> {success}
                 </div>
               )}
 

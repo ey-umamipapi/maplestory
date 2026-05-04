@@ -86,7 +86,7 @@ export default function Register() {
                   placeholder="Your full name"
                   maxLength={20}
                   required
-                  className="maple-input w-full bg-black/40 border border-maple-border/50 rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-600 text-sm"
+                  className="maple-input w-full rounded-lg px-4 py-2.5 text-sm border" style={{ background: 'var(--bg-secondary)', color: 'var(--text-heading)', borderColor: 'var(--border-color)' }}
                 />
                 <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Max 20 characters · used for display only</p>
               </div>
@@ -104,7 +104,7 @@ export default function Register() {
                   placeholder="MapleHero"
                   maxLength={13}
                   required
-                  className="maple-input w-full bg-black/40 border border-maple-border/50 rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-600 text-sm"
+                  className="maple-input w-full rounded-lg px-4 py-2.5 text-sm border" style={{ background: 'var(--bg-secondary)', color: 'var(--text-heading)', borderColor: 'var(--border-color)' }}
                 />
                 <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>4–13 chars · letters and numbers only</p>
               </div>
@@ -121,7 +121,7 @@ export default function Register() {
                   onChange={handleChange}
                   placeholder="••••••••"
                   required
-                  className="maple-input w-full bg-black/40 border border-maple-border/50 rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-600 text-sm"
+                  className="maple-input w-full rounded-lg px-4 py-2.5 text-sm border" style={{ background: 'var(--bg-secondary)', color: 'var(--text-heading)', borderColor: 'var(--border-color)' }}
                 />
               </div>
 
@@ -137,18 +137,18 @@ export default function Register() {
                   onChange={handleChange}
                   placeholder="••••••••"
                   required
-                  className="maple-input w-full bg-black/40 border border-maple-border/50 rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-600 text-sm"
+                  className="maple-input w-full rounded-lg px-4 py-2.5 text-sm border" style={{ background: 'var(--bg-secondary)', color: 'var(--text-heading)', borderColor: 'var(--border-color)' }}
                 />
               </div>
 
               {/* Error / Success */}
               {error && (
-                <div className="flex items-start gap-2 bg-red-950/60 border border-red-700/50 text-red-400 rounded-lg px-4 py-3 text-sm">
+                <div className="flex items-start gap-2 rounded-lg px-4 py-3 text-sm border border-red-400/40 text-red-500 bg-red-50/80">
                   <span className="mt-0.5">⚠️</span> {error}
                 </div>
               )}
               {success && (
-                <div className="flex items-start gap-2 bg-green-950/60 border border-green-700/50 text-green-400 rounded-lg px-4 py-3 text-sm">
+                <div className="flex items-start gap-2 rounded-lg px-4 py-3 text-sm border border-green-400/40 text-green-600 bg-green-50/80">
                   <span className="mt-0.5">✅</span> {success} Redirecting…
                 </div>
               )}
