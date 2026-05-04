@@ -357,33 +357,43 @@ export default function Database({ mobs, npcs, maps, skills }) {
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 function parseHandbook(filePath, isSkill = false) {
-  const text = fs.readFileSync(filePath, "utf8");
-  const out = [];
-  for (const raw of text.split("\n")) {
-    const line = raw.trim();
-    const m = line.match(/^(\d+)\s*-\s*(.+)/);
-    if (!m) continue;
-    const id   = parseInt(m[1], 10);
-    const rest = m[2].trim();
-    if (isSkill) {
-      const sep  = rest.indexOf(" - ");
-      const name = sep >= 0 ? rest.slice(0, sep).trim() : rest;
-      const desc = sep >= 0 ? rest.slice(sep + 3).replace(/\\n/g, " ").trim() : "";
-      out.push({ id, name, desc });
-    } else {
-      out.push({ id, name: rest });
+  try {
+    const text = fs.readFileSync(filePath, "utf8");
+    const out = [];
+    for (const raw of text.split("\n")) {
+      const line = raw.trim();
+      const m = line.match(/^(\d+)\s*-\s*(.+)/);
+      if (!m) continue;
+      const id   = parseInt(m[1], 10);
+      const rest = m[2].trim();
+      if (isSkill) {
+        const sep  = rest.indexOf(" - ");
+        const name = sep >= 0 ? rest.slice(0, sep).trim() : rest;
+        const desc = sep >= 0 ? rest.slice(sep + 3).replace(/\\n/g, " ").trim() : "";
+        out.push({ id, name, desc });
+      } else {
+        out.push({ id, name: rest });
+      }
     }
+    return out;
+  } catch (e) {
+    // File not found or unreadable — return empty array
+    return [];
   }
-  return out;
 }
 
 export async function getStaticProps() {
-  const hb = path.join(process.cwd(), "..", "cosmic-server", "handbook");
+  let hb = path.join(process.cwd(), "..", "cosmic-server", "handbook");
+
+  // Fallback to relative path if cosmic-server is in current directory
+  if (!fs.existsSync(hb)) {
+    hb = path.join(process.cwd(), "cosmic-server", "handbook");
+  }
 
   const mobs   = parseHandbook(path.join(hb, "Mob.txt"));
   const npcs   = parseHandbook(path.join(hb, "NPC.txt"));
   const maps   = parseHandbook(path.join(hb, "Map.txt"));
   const skills = parseHandbook(path.join(hb, "Skill.txt"), true);
 
-  return { props: { mobs, npcs, maps, skills } };
+  return { props: { mobs, npcs, maps, skills }, revalidate: 3600 };
 }
