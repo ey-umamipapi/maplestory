@@ -29,16 +29,16 @@
 
 /* ── Theme Variables (light default) ────────────────────────────────────────── */
 :root {
-  --bg-primary:    #ffffff;
-  --bg-secondary:  #f8f8fb;
+  --bg-primary:    #fdf6ee;
+  --bg-secondary:  #f5e9d8;
   --text-primary:  #1e293b;
-  --border-color:  rgba(0,0,0,0.1);
-  --nav-bg:        rgba(255,255,255,0.95);
-  --sidebar-bg:    rgba(255,255,255,0.95);
-  --stars-base:    #ffffff;
-  --card-bg:       #ffffff;
-  --card-border:   rgba(0,0,0,0.08);
-  --card-shadow:   0 2px 12px rgba(0,0,0,0.06);
+  --border-color:  rgba(180,100,30,0.12);
+  --nav-bg:        rgba(253,246,238,0.95);
+  --sidebar-bg:    rgba(253,246,238,0.95);
+  --stars-base:    #fdf6ee;
+  --card-bg:       #fffaf4;
+  --card-border:   rgba(220,130,50,0.14);
+  --card-shadow:   0 2px 16px rgba(180,90,30,0.08);
   --text-muted:    #64748b;
   --text-heading:  #0f172a;
 }
@@ -98,8 +98,10 @@ input:-webkit-autofill {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse at 20% 20%, rgba(233,69,96,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 80%, rgba(230,126,34,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 15% 10%, rgba(233,120,50,0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 15%, rgba(241,196,15,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(233,69,96,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 60%, rgba(230,126,34,0.07) 0%, transparent 45%),
     var(--stars-base);
   transition: background 0.3s ease;
 }
@@ -108,6 +110,23 @@ input:-webkit-autofill {
   content: '';
   position: absolute;
   inset: 0;
+  background-image:
+    radial-gradient(60px 60px at 10% 20%, rgba(233,120,50,0.07) 0%, transparent 100%),
+    radial-gradient(40px 40px at 30% 55%, rgba(241,196,15,0.06) 0%, transparent 100%),
+    radial-gradient(80px 80px at 70% 15%, rgba(233,69,96,0.05) 0%, transparent 100%),
+    radial-gradient(50px 50px at 88% 40%, rgba(230,126,34,0.07) 0%, transparent 100%),
+    radial-gradient(70px 70px at 55% 75%, rgba(241,196,15,0.05) 0%, transparent 100%),
+    radial-gradient(45px 45px at 20% 85%, rgba(233,120,50,0.06) 0%, transparent 100%);
+}
+
+html.theme-night .stars-bg {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(233,69,96,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(230,126,34,0.06) 0%, transparent 60%),
+    var(--stars-base);
+}
+
+html.theme-night .stars-bg::before {
   background-image:
     radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4) 0%, transparent 100%),
     radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
