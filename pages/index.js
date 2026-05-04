@@ -61,7 +61,7 @@ export default function Home() {
             </Link>
             <Link
               href="/download"
-              className="px-8 py-3.5 rounded-xl border border-maple-border/50 hover:border-maple-accent hover:text-maple-accent text-slate-300 text-lg font-semibold transition-all"
+              className="px-8 py-3.5 rounded-xl bg-blue-500 hover:bg-blue-600 text-white text-lg font-bold transition-all shadow-md hover:shadow-blue-400/40"
             >
               Download Client
             </Link>
