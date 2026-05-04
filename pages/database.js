@@ -215,7 +215,7 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
   const [maxLv, setMaxLv] = useState(200);
   const [showBossOnly, setShowBossOnly] = useState(false);
   const [mapRegion, setMapRegion] = useState("All");
-  const [pageSize, setPageSize] = useState(60);
+  const [pageSize, setPageSize] = useState(100);
 
   // Default to system theme on mount
   useEffect(() => { setThemeName(getSystemTheme()); }, []);
@@ -301,20 +301,6 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
             <h1 className={`text-3xl font-bold maple-gradient-text`} style={{ fontFamily: "Inter, sans-serif" }}>
               Game Database
             </h1>
-            {/* Theme toggle */}
-            <div className="flex gap-1 bg-black/20 rounded-lg p-1">
-              {themeButtons.map(({ key, label }) => (
-                <button
-                  key={key}
-                  onClick={() => setThemeName(key)}
-                  className={`px-3 py-1 rounded-md text-xs font-medium transition-all ${
-                    themeName === key ? "bg-white/20 text-white" : "text-slate-400 hover:text-white"
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
           </div>
           <p className={`text-sm mb-8 ${th.subtext}`}>
             Browse monsters, NPCs, maps and skills. Click any command badge to copy it.
@@ -418,7 +404,7 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
             </p>
             <div className="flex items-center gap-1">
               <span className={`text-xs ${th.muted}`}>Show:</span>
-              {[50, 100, 250].map(n => (
+              {[100, 250, 500, 1000].map(n => (
                 <button
                   key={n}
                   onClick={() => { setPageSize(n); setPage(0); }}
