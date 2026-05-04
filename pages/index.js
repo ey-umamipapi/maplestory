@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Layout from "../components/Layout";
+import ServerStatus from "../components/ServerStatus";
 
 const LEAVES = ["🍁", "🍂", "🍁", "🍂", "🍁", "🍂", "🍁"];
 
@@ -48,16 +49,21 @@ export default function Home() {
             A v83 MapleStory private server built for the love of the game. Free to play, free NX, x10 rates. No cash walls, no BS — just Maple the way it used to be.
           </p>
 
+          {/* Server Status */}
+          <div className="mb-6">
+            <ServerStatus />
+          </div>
+
           {/* CTAs */}
           <div className="flex gap-4 flex-wrap justify-center">
             <Link href="/register" className="btn-maple px-8 py-3.5 rounded-xl text-white text-lg font-bold">
               Create Account
             </Link>
             <Link
-              href="/login"
+              href="/download"
               className="px-8 py-3.5 rounded-xl border border-maple-border/50 hover:border-maple-accent hover:text-maple-accent text-slate-300 text-lg font-semibold transition-all"
             >
-              Login
+              Download Client
             </Link>
           </div>
         </main>
