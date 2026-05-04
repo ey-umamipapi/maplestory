@@ -383,9 +383,12 @@ function parseHandbook(filePath, isSkill = false) {
 }
 
 export async function getStaticProps() {
-  let hb = path.join(process.cwd(), "..", "cosmic-server", "handbook");
+  // Try handbook paths in order of priority
+  let hb = path.join(process.cwd(), "handbook");
 
-  // Fallback to relative path if cosmic-server is in current directory
+  if (!fs.existsSync(hb)) {
+    hb = path.join(process.cwd(), "..", "cosmic-server", "handbook");
+  }
   if (!fs.existsSync(hb)) {
     hb = path.join(process.cwd(), "cosmic-server", "handbook");
   }
