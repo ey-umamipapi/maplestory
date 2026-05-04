@@ -38,8 +38,8 @@ export default function Home() {
       <Layout siteName={siteName}>
         {/* ── Hero ──────────────────────────────────────────────────────────── */}
         <main className="flex-1 flex flex-col items-center justify-center text-center px-6 py-20">
-          {/* Logo */}
-          <img src="/umamims-logo.png" alt={siteName} className="h-44 md:h-60 object-contain mb-4" />
+          {/* Hero image */}
+          <img src="/umamims_group.png" alt={siteName} className="w-full max-w-lg object-contain mb-4" />
 
           <h1 className="font-visby text-3xl md:text-4xl font-bold mb-6 maple-gradient-text drop-shadow-[0_0_30px_rgba(233,69,96,0.4)]">
             Welcome to UmamiMS!
