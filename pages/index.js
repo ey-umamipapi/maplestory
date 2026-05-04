@@ -90,7 +90,7 @@ export default function Home() {
         </section>
 
         {/* ── Footer ────────────────────────────────────────────────────────── */}
-        <footer className="text-center py-6 text-slate-700 border-t border-maple-border/20 text-sm">
+        <footer className="text-center py-6 border-t text-sm" style={{ borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}>
           🍁 {siteName} — Just for fun.
         </footer>
       </Layout>
