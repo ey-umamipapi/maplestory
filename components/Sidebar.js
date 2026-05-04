@@ -48,10 +48,10 @@ export default function Sidebar({ siteName, logo }) {
 
       {/* Play Now Section */}
       <div>
-        <p className="px-3 pb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>
+        <p className="px-3 py-2.5 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>
           🍁 Play Now
         </p>
-        <div className="space-y-1">
+        <div className="mt-2 space-y-1">
           <SectionLink href="/download" label="Download Client" icon="⬇️" />
           <SectionLink href="/login" label="Login" icon="🔐" />
           <SectionLink href="/register" label="Register" icon="✍️" />
