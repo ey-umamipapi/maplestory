@@ -43,7 +43,7 @@ export default function GuidesIndex() {
 
         <main className="flex-1 px-6 py-16 max-w-4xl mx-auto w-full">
           <div className="text-center mb-14">
-            <h1 className="font-fredoka text-5xl font-bold maple-gradient-text mb-3">Guides</h1>
+            <h1 className="font-visby text-5xl font-bold maple-gradient-text mb-3">Guides</h1>
             <p className="text-slate-400 text-base">Everything you need to play UmamiMS like a pro.</p>
           </div>
 
@@ -55,7 +55,7 @@ export default function GuidesIndex() {
                   <span className={`text-xs font-bold px-2 py-0.5 rounded-full border ${g.badgeColor} mb-2 inline-block`}>
                     {g.badge}
                   </span>
-                  <h2 className="font-cinzel text-slate-100 font-bold text-base group-hover:text-maple-accent transition-colors">{g.title}</h2>
+                  <h2 className="font-visby text-slate-100 font-bold text-base group-hover:text-maple-accent transition-colors">{g.title}</h2>
                   <p className="text-slate-500 text-xs mt-1 leading-relaxed">{g.desc}</p>
                 </div>
               </Link>

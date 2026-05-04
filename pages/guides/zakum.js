@@ -22,7 +22,7 @@ export default function ZakumGuide() {
           </div>
 
           <div className="mb-10">
-            <h1 className="font-fredoka text-4xl font-bold maple-gradient-text mb-2">👹 Zakum Guide</h1>
+            <h1 className="font-visby text-4xl font-bold maple-gradient-text mb-2">👹 Zakum Guide</h1>
             <p className="text-slate-400">The most iconic boss in v83 MapleStory. Here&apos;s how to beat him.</p>
             <div className="flex gap-3 flex-wrap mt-3">
               <span className="text-xs px-3 py-1 rounded-full border border-red-400/40 text-red-400 bg-red-400/10 font-bold">Level 60+ Recommended</span>
@@ -40,7 +40,7 @@ export default function ZakumGuide() {
 
           {/* Requirements */}
           <div className="maple-card rounded-2xl p-6 mb-6">
-            <h2 className="font-cinzel text-maple-yellow font-bold text-lg mb-4">📋 Requirements</h2>
+            <h2 className="font-visby text-maple-yellow font-bold text-lg mb-4">📋 Requirements</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Character</h3>
@@ -64,7 +64,7 @@ export default function ZakumGuide() {
 
           {/* Eye of Fire quest */}
           <div className="maple-card rounded-2xl p-6 mb-6">
-            <h2 className="font-cinzel text-maple-yellow font-bold text-lg mb-3">🔥 Eye of Fire Quest</h2>
+            <h2 className="font-visby text-maple-yellow font-bold text-lg mb-3">🔥 Eye of Fire Quest</h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-3">
               You cannot enter Zakum without completing the Eye of Fire quest chain. It&apos;s a one-time prerequisite. Expect to spend 2–3 hours on it the first time.
             </p>
@@ -90,12 +90,12 @@ export default function ZakumGuide() {
 
           {/* Fight breakdown */}
           <div className="maple-card rounded-2xl p-6 mb-6">
-            <h2 className="font-cinzel text-maple-yellow font-bold text-lg mb-5">⚔️ The Fight</h2>
+            <h2 className="font-visby text-maple-yellow font-bold text-lg mb-5">⚔️ The Fight</h2>
 
             <div className="space-y-6">
               {/* Phase 1 */}
               <div className="border-l-4 border-orange-400 pl-4">
-                <h3 className="font-cinzel text-orange-400 font-bold mb-2">Phase 1 — The Arms (10–15 min)</h3>
+                <h3 className="font-visby text-orange-400 font-bold mb-2">Phase 1 — The Arms (10–15 min)</h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-3">
                   Zakum has 8 arms, each with independent HP. You must destroy all 8 before the body becomes attackable. The arms deal heavy damage and apply status effects — Darkness, Seal, and Slow are common.
                 </p>
@@ -113,7 +113,7 @@ export default function ZakumGuide() {
 
               {/* Phase 2 */}
               <div className="border-l-4 border-red-400 pl-4">
-                <h3 className="font-cinzel text-red-400 font-bold mb-2">Phase 2 — The Body (15–20 min)</h3>
+                <h3 className="font-visby text-red-400 font-bold mb-2">Phase 2 — The Body (15–20 min)</h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-3">
                   With all arms gone, Zakum&apos;s three body sections become targetable. The body uses teleport attacks, map-wide damage, and instakill moves. This is when people die most.
                 </p>
@@ -134,7 +134,7 @@ export default function ZakumGuide() {
 
           {/* Party comp */}
           <div className="maple-card rounded-2xl p-6 mb-6">
-            <h2 className="font-cinzel text-maple-yellow font-bold text-lg mb-4">👥 Party Composition</h2>
+            <h2 className="font-visby text-maple-yellow font-bold text-lg mb-4">👥 Party Composition</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
               <div className="bg-blue-400/10 border border-blue-400/30 rounded-xl p-4 text-center">
                 <div className="text-2xl mb-2">🔮</div>
@@ -157,7 +157,7 @@ export default function ZakumGuide() {
 
           {/* Drops */}
           <div className="maple-card rounded-2xl p-6">
-            <h2 className="font-cinzel text-maple-yellow font-bold text-lg mb-4">🎁 Notable Drops</h2>
+            <h2 className="font-visby text-maple-yellow font-bold text-lg mb-4">🎁 Notable Drops</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
               {[
                 { item: "Zakum Helmet", note: "Level 50 best-in-slot helmet. 15-stat scrolled is endgame BiS.", rarity: "Guaranteed" },

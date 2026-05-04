@@ -95,7 +95,7 @@ export default function LevelingGuide() {
           </div>
 
           <div className="mb-10">
-            <h1 className="font-fredoka text-4xl font-bold maple-gradient-text mb-2">⚡ Leveling Guide</h1>
+            <h1 className="font-visby text-4xl font-bold maple-gradient-text mb-2">⚡ Leveling Guide</h1>
             <p className="text-slate-400">Best training spots from 1 to 120, tuned for UmamiMS x10 rates.</p>
             <div className="mt-3 flex gap-3 flex-wrap">
               <span className="text-xs px-3 py-1 rounded-full border border-maple-yellow/40 text-maple-yellow bg-maple-yellow/10 font-bold">x10 EXP Rates</span>
@@ -113,7 +113,7 @@ export default function LevelingGuide() {
           <div className="space-y-8">
             {SPOTS.map((section) => (
               <div key={section.range} className="maple-card rounded-2xl p-6">
-                <h2 className={`font-cinzel font-bold text-xl mb-4 ${section.color}`}>
+                <h2 className={`font-visby font-bold text-xl mb-4 ${section.color}`}>
                   Level {section.range}
                 </h2>
                 <div className="space-y-4">
@@ -133,7 +133,7 @@ export default function LevelingGuide() {
 
           {/* Party Quests callout */}
           <div className="mt-10 maple-card rounded-2xl p-6 border-maple-accent/20">
-            <h3 className="font-cinzel text-maple-yellow font-bold mb-3">🎉 Don&apos;t Skip Party Quests</h3>
+            <h3 className="font-visby text-maple-yellow font-bold mb-3">🎉 Don&apos;t Skip Party Quests</h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               Party Quests aren&apos;t just EXP — they&apos;re some of the best content in v83. Kerning PQ (21–30), Ludibrium PQ (35–50), Orbis PQ (51–70), and Magatia PQ (71–85) are all fully working on UmamiMS. Find a party in the Free Market or whisper players in the same level range.
             </p>

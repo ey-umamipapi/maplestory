@@ -56,7 +56,7 @@ export default function Login() {
 
           {/* Card */}
           <div className="maple-card w-full max-w-md rounded-2xl p-8 shadow-2xl">
-            <h1 className="font-cinzel text-2xl font-bold mb-1" style={{ color: 'var(--text-heading)' }}>Welcome Back</h1>
+            <h1 className="font-visby text-2xl font-bold mb-1" style={{ color: 'var(--text-heading)' }}>Welcome Back</h1>
             <p className="text-sm mb-6" style={{ color: 'var(--text-muted)' }}>
               No account?{" "}
               <Link href="/register" className="text-maple-accent hover:underline font-semibold">

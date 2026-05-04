@@ -112,7 +112,7 @@ export default function ClassesGuide() {
           </div>
 
           <div className="mb-10">
-            <h1 className="font-fredoka text-4xl font-bold maple-gradient-text mb-2">⚔️ Explorer Classes</h1>
+            <h1 className="font-visby text-4xl font-bold maple-gradient-text mb-2">⚔️ Explorer Classes</h1>
             <p className="text-slate-400">All five v83 Explorer classes, their paths, and what makes them tick.</p>
             <p className="text-slate-500 text-sm mt-2">
               On UmamiMS, you can grab extra movement skills (Flash Jump, Haste, Teleport) from <strong className="text-slate-300">Grendel</strong> in the Free Market — so pick whichever class excites you.
@@ -127,7 +127,7 @@ export default function ClassesGuide() {
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">{cls.icon}</span>
                     <div>
-                      <h2 className={`font-cinzel font-bold text-xl ${cls.color}`}>{cls.name}</h2>
+                      <h2 className={`font-visby font-bold text-xl ${cls.color}`}>{cls.name}</h2>
                       <div className="flex gap-2 mt-1 flex-wrap">
                         <span className="text-xs text-slate-500 bg-black/30 px-2 py-0.5 rounded-full">Main Stat: {cls.stat}</span>
                         <span className="text-xs text-slate-500 bg-black/30 px-2 py-0.5 rounded-full">Start: {cls.town}</span>

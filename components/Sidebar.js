@@ -40,7 +40,7 @@ export default function Sidebar({ siteName, logo }) {
     <aside className="w-56 backdrop-blur border-r p-4 overflow-y-auto max-h-screen flex flex-col gap-6" style={{ background: "var(--sidebar-bg)", borderColor: "var(--border-color)" }}>
       {/* Logo Section */}
       <Link href="/" className="flex flex-col items-center justify-center py-4 mb-2 hover:opacity-80 transition-opacity gap-2">
-        <img src="/umamims-logo.png" alt={siteName} className="h-24 object-contain" style={{ mixBlendMode: 'multiply' }} />
+        <img src="/umamims-logo.png" alt={siteName} className="h-24 object-contain" style={{ mixBlendMode: 'screen' }} />
         <span className="font-visby text-sm text-slate-700">{siteName}</span>
       </Link>
 
@@ -78,7 +78,6 @@ export default function Sidebar({ siteName, logo }) {
         <SectionHeader label="TOOLS" section="tools" icon="⚙️" />
         {expandedSections.tools && (
           <div className="mt-2 space-y-1">
-            <SectionLink href="/tools/damage-calc" label="Damage Calculator" icon="💥" />
             <SectionLink href="/tools/training-spots" label="Training Spots" icon="📍" />
             <SectionLink href="/tools/ap-planner" label="AP Planner" icon="📊" />
           </div>

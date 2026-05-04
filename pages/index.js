@@ -48,7 +48,7 @@ export default function Home() {
             {siteName}
           </h1>
 
-          <h2 className="font-cinzel text-xl md:text-2xl font-bold mb-4" style={{ color: 'var(--text-heading)' }}>
+          <h2 className="font-visby text-xl md:text-2xl font-bold mb-4" style={{ color: 'var(--text-heading)' }}>
             Welcome to UmamiMS!
           </h2>
 

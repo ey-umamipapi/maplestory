@@ -64,7 +64,7 @@ export default function Register() {
 
           {/* Card */}
           <div className="maple-card w-full max-w-md rounded-2xl p-8 shadow-2xl">
-            <h1 className="font-cinzel text-2xl font-bold mb-1" style={{ color: 'var(--text-heading)' }}>Create Account</h1>
+            <h1 className="font-visby text-2xl font-bold mb-1" style={{ color: 'var(--text-heading)' }}>Create Account</h1>
             <p className="text-sm mb-6" style={{ color: 'var(--text-muted)' }}>
               Already registered?{" "}
               <Link href="/login" className="text-maple-accent hover:underline font-semibold">
@@ -83,7 +83,7 @@ export default function Register() {
                   name="fullName"
                   value={form.fullName}
                   onChange={handleChange}
-                  placeholder="e.g. Ethan Yong"
+                  placeholder="Your full name"
                   maxLength={20}
                   required
                   className="maple-input w-full bg-black/40 border border-maple-border/50 rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-600 text-sm"
@@ -101,7 +101,7 @@ export default function Register() {
                   name="username"
                   value={form.username}
                   onChange={handleChange}
-                  placeholder="e.g. MapleHero"
+                  placeholder="MapleHero"
                   maxLength={13}
                   required
                   className="maple-input w-full bg-black/40 border border-maple-border/50 rounded-lg px-4 py-2.5 text-slate-100 placeholder-slate-600 text-sm"
