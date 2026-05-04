@@ -37,23 +37,8 @@ export default function Home() {
       <Layout siteName={siteName}>
         {/* ── Hero ──────────────────────────────────────────────────────────── */}
         <main className="flex-1 flex flex-col items-center justify-center text-center px-6 py-20">
-          {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 bg-maple-accent/10 border border-maple-accent/30 text-maple-accent text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-maple-accent animate-pulse" />
-            Server Online
-          </div>
-
           {/* Logo */}
-          <img src="/umamims-logo.png" alt={siteName} className="h-40 md:h-52 object-contain mb-2" />
-
-          {/* Title */}
-          <h1 className="font-visby text-7xl md:text-9xl font-bold mb-4 maple-gradient-text drop-shadow-[0_0_40px_rgba(233,69,96,0.3)] tracking-wide">
-            {siteName}
-          </h1>
-
-          <h2 className="font-visby text-xl md:text-2xl font-bold mb-4" style={{ color: 'var(--text-heading)' }}>
-            Welcome to UmamiMS!
-          </h2>
+          <img src="/umamims-logo.png" alt={siteName} className="h-44 md:h-60 object-contain mb-6" />
 
           <p className="text-slate-400 text-base md:text-lg max-w-xl mb-10 leading-relaxed">
             A v83 MapleStory private server built for the love of the game. Free to play, free NX, x10 rates. No cash walls, no BS — just Maple the way it used to be.
