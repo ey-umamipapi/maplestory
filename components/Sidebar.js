@@ -89,8 +89,11 @@ export default function Sidebar({ siteName, logo }) {
         <SectionHeader label="GUIDES" section="guides" icon="📖" />
         {expandedSections.guides && (
           <div className="mt-2 space-y-1">
+            <SectionLink href="/guides/beginner" label="Beginner's Guide" icon="🍄" />
             <SectionLink href="/guides/leveling" label="Leveling Guide" icon="⬆️" />
             <SectionLink href="/guides/classes" label="Class Guide" icon="👤" />
+            <SectionLink href="/guides/party-quests" label="Party Quests" icon="🎉" />
+            <SectionLink href="/guides/meso-farming" label="Meso Farming" icon="💰" />
             <SectionLink href="/guides/zakum" label="Zakum Guide" icon="🐉" />
           </div>
         )}
