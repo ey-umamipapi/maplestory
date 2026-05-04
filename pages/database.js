@@ -8,6 +8,30 @@ import Layout from "../components/Layout";
 
 const TABS = ["Monsters", "NPCs", "Maps", "Skills"];
 const PAGE_SIZE = 60;
+
+const MAP_REGIONS = [
+  { label: "All",              test: () => true },
+  { label: "🍄 Maple Island",  test: id => id >= 1000000   && id <= 1999999   },
+  { label: "🌿 Henesys",       test: id => id >= 100000000 && id <= 100999999 },
+  { label: "🌳 Ellinia",       test: id => id >= 101000000 && id <= 101999999 },
+  { label: "🏔️ Perion",        test: id => id >= 102000000 && id <= 102999999 },
+  { label: "🏙️ Kerning City",  test: id => id >= 103000000 && id <= 103999999 },
+  { label: "⚓ Lith Harbor",   test: id => id >= 104000000 && id <= 104999999 },
+  { label: "🌑 Sleepywood",    test: id => id >= 105000000 && id <= 105999999 },
+  { label: "🏖️ Florina Beach", test: id => id >= 110000000 && id <= 110999999 },
+  { label: "🚢 Nautilus",      test: id => id >= 120000000 && id <= 120999999 },
+  { label: "☁️ Orbis",         test: id => id >= 200000000 && id <= 200999999 },
+  { label: "❄️ El Nath",       test: id => id >= 211000000 && id <= 211999999 },
+  { label: "🎪 Ludibrium",     test: id => id >= 220000000 && id <= 220999999 },
+  { label: "🏮 KFT",           test: id => id >= 221000000 && id <= 221999999 },
+  { label: "🤖 Omega Sector",  test: id => id >= 222000000 && id <= 222999999 },
+  { label: "🌊 Aqua Road",     test: id => id >= 230000000 && id <= 230999999 },
+  { label: "🐉 Leafre",        test: id => id >= 240000000 && id <= 240999999 },
+  { label: "🥋 Mu Lung",       test: id => id >= 250000000 && id <= 250999999 },
+  { label: "🌺 Herb Town",     test: id => id >= 251000000 && id <= 251999999 },
+  { label: "🏜️ Ariant",        test: id => id >= 260000000 && id <= 260999999 },
+  { label: "🌆 New Leaf City", test: id => id >= 600000000 && id <= 609999999 },
+];
 const API = "https://maplestory.io/api/GMS/83";
 
 const mobImg   = (id) => `${API}/mob/${id}/render/stand`;
@@ -175,6 +199,7 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
   const [minLv, setMinLv] = useState(1);
   const [maxLv, setMaxLv] = useState(200);
   const [showBossOnly, setShowBossOnly] = useState(false);
+  const [mapRegion, setMapRegion] = useState("All");
 
   // Default to system theme on mount
   useEffect(() => { setThemeName(getSystemTheme()); }, []);
@@ -204,6 +229,12 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
       );
     }
 
+    // Map region filter
+    if (tab === "Maps" && mapRegion !== "All") {
+      const region = MAP_REGIONS.find(r => r.label === mapRegion);
+      if (region) result = result.filter(m => region.test(m.id));
+    }
+
     // Monster-specific filters
     if (tab === "Monsters" && metadata) {
       result = result.filter((mob) => {
@@ -219,12 +250,12 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
     }
 
     return result;
-  }, [activeData, search, tab, minLv, maxLv, showBossOnly, metadata]);
+  }, [activeData, search, tab, minLv, maxLv, showBossOnly, mapRegion, metadata]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const visible    = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
 
-  function switchTab(t) { setTab(t); setSearch(""); setPage(0); }
+  function switchTab(t) { setTab(t); setSearch(""); setPage(0); setMapRegion("All"); }
   function onSearch(e)   { setSearch(e.target.value); setPage(0); }
 
   const themeButtons = [
@@ -305,6 +336,22 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
                 className={`w-full pl-9 pr-4 py-2 rounded-xl border text-sm focus:outline-none transition-all ${th.input}`}
               />
             </div>
+
+            {/* Map region filter */}
+            {tab === "Maps" && (
+              <div className="flex flex-col gap-1">
+                <label className={`text-xs font-semibold ${th.muted}`}>Region</label>
+                <select
+                  value={mapRegion}
+                  onChange={e => { setMapRegion(e.target.value); setPage(0); }}
+                  className={`px-3 py-1.5 rounded-xl border text-xs focus:outline-none transition-all ${th.input}`}
+                >
+                  {MAP_REGIONS.map(r => (
+                    <option key={r.label} value={r.label}>{r.label}</option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             {/* Monster-only filters */}
             {tab === "Monsters" && metadata && (
