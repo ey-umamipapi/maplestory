@@ -51,7 +51,7 @@ export default function Home() {
 
           {/* Server Status */}
           <div className="mb-6">
-            <ServerStatus />
+            <ServerStatus size="hero" />
           </div>
 
           {/* CTAs */}
