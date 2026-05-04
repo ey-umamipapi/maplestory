@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Sidebar({ siteName, logo, onNavigate }) {
+export default function Sidebar({ siteName, logo, onNavigate, onClose }) {
   const [expandedSections, setExpandedSections] = useState({
     database: true,
     tools: true,
@@ -48,10 +48,21 @@ export default function Sidebar({ siteName, logo, onNavigate }) {
   return (
     <aside className="w-56 backdrop-blur border-r p-4 flex flex-col gap-6 self-stretch" style={{ background: "var(--sidebar-bg)", borderColor: "var(--border-color)" }}>
       {/* Logo Section */}
-      <Link href="/" onClick={onNavigate} className="flex flex-col items-center justify-center py-4 mb-2 hover:opacity-80 transition-opacity gap-2">
-        <img src="/favicon_clear.png" alt={siteName} className="h-24 object-contain" />
-        <span className="font-visby text-sm" style={{ color: 'var(--text-muted)' }}>{siteName}</span>
-      </Link>
+      <div className="relative">
+        <Link href="/" onClick={onNavigate} className="flex flex-col items-center justify-center py-4 mb-2 hover:opacity-80 transition-opacity gap-2">
+          <img src="/favicon_clear.png" alt={siteName} className="h-24 object-contain" />
+          <span className="font-visby text-sm" style={{ color: 'var(--text-muted)' }}>{siteName}</span>
+        </Link>
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-2 right-2 w-7 h-7 flex items-center justify-center rounded-lg text-lg hover:text-maple-accent transition-colors"
+          style={{ color: 'var(--text-muted)' }}
+          aria-label="Close sidebar"
+        >
+          ×
+        </button>
+      </div>
 
       <div className="maple-divider" />
 

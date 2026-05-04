@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Nav from "./Nav";
 import Sidebar from "./Sidebar";
 
 export default function Layout({ children, siteName, logo, showSidebar = true }) {
+  // Default open on desktop, closed on mobile — resolved after mount to avoid SSR mismatch
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    setSidebarOpen(window.innerWidth >= 768);
+  }, []);
 
   return (
     <>
@@ -14,7 +19,7 @@ export default function Layout({ children, siteName, logo, showSidebar = true })
         <div className="flex flex-1">
           {showSidebar && (
             <>
-              {/* Mobile overlay */}
+              {/* Mobile overlay — tap outside to close */}
               {sidebarOpen && (
                 <div
                   className="fixed inset-0 z-20 bg-black/50 md:hidden"
@@ -26,12 +31,13 @@ export default function Layout({ children, siteName, logo, showSidebar = true })
               <div className={`
                 fixed inset-y-0 left-0 z-30 md:static md:z-auto
                 transition-transform duration-200 ease-in-out
-                ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
-              `}>
+                ${sidebarOpen ? "translate-x-0" : "-translate-x-full md:-translate-x-full"}
+              `} style={{ width: '14rem' }}>
                 <Sidebar
                   siteName={siteName}
                   logo={logo}
-                  onNavigate={() => setSidebarOpen(false)}
+                  onNavigate={() => { if (window.innerWidth < 768) setSidebarOpen(false); }}
+                  onClose={() => setSidebarOpen(false)}
                 />
               </div>
             </>
