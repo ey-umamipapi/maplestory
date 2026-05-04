@@ -88,25 +88,25 @@ export default function LevelingGuide() {
 
         <main className="flex-1 px-6 py-12 max-w-4xl mx-auto w-full">
           {/* Breadcrumb */}
-          <div className="text-sm text-slate-600 mb-8">
+          <div className="text-sm mb-8" style={{ color: 'var(--text-muted)' }}>
             <Link href="/guides" className="hover:text-maple-accent transition-colors">Guides</Link>
             <span className="mx-2">›</span>
-            <span className="text-slate-400">Leveling Guide</span>
+            <span>Leveling Guide</span>
           </div>
 
           <div className="mb-10">
             <h1 className="font-visby text-4xl font-bold maple-gradient-text mb-2">⚡ Leveling Guide</h1>
-            <p className="text-slate-400">Best training spots from 1 to 120, tuned for UmamiMS x10 rates.</p>
+            <p style={{ color: 'var(--text-muted)' }}>Best training spots from 1 to 120, tuned for UmamiMS x10 rates.</p>
             <div className="mt-3 flex gap-3 flex-wrap">
               <span className="text-xs px-3 py-1 rounded-full border border-maple-yellow/40 text-maple-yellow bg-maple-yellow/10 font-bold">x10 EXP Rates</span>
-              <span className="text-xs px-3 py-1 rounded-full border border-maple-border/50 text-slate-400">v83 Content</span>
+              <span className="text-xs px-3 py-1 rounded-full border border-maple-accent/20 font-medium" style={{ color: 'var(--text-muted)' }}>v83 Content</span>
             </div>
           </div>
 
           {/* UmamiMS tip */}
-          <div className="maple-card rounded-xl p-4 mb-10 border-maple-accent/30">
-            <p className="text-sm text-slate-300">
-              <span className="text-maple-accent font-bold">UmamiMS tip:</span> With x10 EXP you progress much faster than on a regular server. These ranges are approximate — you might blow past them in half the time, especially if you run Party Quests. Type <span className="font-mono text-maple-yellow bg-black/30 px-1 rounded">!fm</span> to reach the Free Market instantly where all custom NPCs are set up.
+          <div className="maple-card rounded-xl p-4 mb-10">
+            <p className="text-sm" style={{ color: 'var(--text-primary)' }}>
+              <span className="text-maple-accent font-bold">UmamiMS tip:</span> With x10 EXP you progress much faster than on a regular server. These ranges are approximate — you might blow past them in half the time, especially if you run Party Quests. Type <span className="font-mono text-maple-yellow px-1 rounded" style={{ background: 'var(--card-border)' }}>!fm</span> to reach the Free Market instantly where all custom NPCs are set up.
             </p>
           </div>
 
@@ -118,12 +118,12 @@ export default function LevelingGuide() {
                 </h2>
                 <div className="space-y-4">
                   {section.spots.map((spot, i) => (
-                    <div key={i} className="border-l-2 border-maple-border/40 pl-4">
+                    <div key={i} className="border-l-2 border-maple-accent/30 pl-4">
                       <div className="flex flex-wrap items-start gap-2 mb-1">
-                        <span className="text-slate-100 font-semibold text-sm">{spot.name}</span>
-                        <span className="text-xs text-slate-500 bg-black/30 px-2 py-0.5 rounded-full">{spot.mobs}</span>
+                        <span className="font-semibold text-sm" style={{ color: 'var(--text-heading)' }}>{spot.name}</span>
+                        <span className="text-xs px-2 py-0.5 rounded-full" style={{ color: 'var(--text-muted)', background: 'var(--card-border)' }}>{spot.mobs}</span>
                       </div>
-                      <p className="text-slate-500 text-xs leading-relaxed">{spot.tip}</p>
+                      <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>{spot.tip}</p>
                     </div>
                   ))}
                 </div>
@@ -132,9 +132,9 @@ export default function LevelingGuide() {
           </div>
 
           {/* Party Quests callout */}
-          <div className="mt-10 maple-card rounded-2xl p-6 border-maple-accent/20">
+          <div className="mt-10 maple-card rounded-2xl p-6">
             <h3 className="font-visby text-maple-yellow font-bold mb-3">🎉 Don&apos;t Skip Party Quests</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               Party Quests aren&apos;t just EXP — they&apos;re some of the best content in v83. Kerning PQ (21–30), Ludibrium PQ (35–50), Orbis PQ (51–70), and Magatia PQ (71–85) are all fully working on UmamiMS. Find a party in the Free Market or whisper players in the same level range.
             </p>
           </div>
