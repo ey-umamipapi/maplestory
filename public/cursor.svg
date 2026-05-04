@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <!-- Outer shadow/border -->
+  <path d="M1 0 L1 18 L5 14 L8 21 L11 20 L8 13 L13 13 Z" fill="#1a0a00"/>
+  <!-- Main arrow fill (maple cream/white) -->
+  <path d="M2 1 L2 16 L6 12 L9 19 L10 18.5 L7 11.5 L12 11.5 Z" fill="#FFF8E7"/>
+  <!-- Highlight line -->
+  <path d="M3 2 L3 13" stroke="#FFD700" stroke-width="0.5" opacity="0.6"/>
+</svg>

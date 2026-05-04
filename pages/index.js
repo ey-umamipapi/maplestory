@@ -46,6 +46,24 @@ export default function Home() {
           </span>
           <div className="flex gap-3">
             <Link
+              href="/database"
+              className="px-5 py-2 rounded-lg border border-maple-border/50 text-slate-300 hover:border-maple-accent hover:text-maple-accent transition-all text-sm font-semibold"
+            >
+              Database
+            </Link>
+            <Link
+              href="/guides"
+              className="px-5 py-2 rounded-lg border border-maple-border/50 text-slate-300 hover:border-maple-accent hover:text-maple-accent transition-all text-sm font-semibold"
+            >
+              Guides
+            </Link>
+            <Link
+              href="/tools"
+              className="px-5 py-2 rounded-lg border border-maple-border/50 text-slate-300 hover:border-maple-accent hover:text-maple-accent transition-all text-sm font-semibold"
+            >
+              Tools
+            </Link>
+            <Link
               href="/download"
               className="px-5 py-2 rounded-lg border border-maple-border/50 text-slate-300 hover:border-maple-accent hover:text-maple-accent transition-all text-sm font-semibold"
             >
