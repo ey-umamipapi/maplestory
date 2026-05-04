@@ -25,7 +25,7 @@ export default function Sidebar({ siteName, logo }) {
   const SectionHeader = ({ label, section, icon }) => (
     <button
       onClick={() => toggleSection(section)}
-      className="w-full px-3 py-2.5 text-xs font-bold uppercase tracking-widest hover:text-maple-accent transition-colors flex items-center justify-between hover:bg-black/5 rounded"
+      className="font-visby w-full px-3 py-2.5 text-xs font-bold uppercase tracking-widest hover:text-maple-accent transition-colors flex items-center justify-between hover:bg-black/5 rounded"
       style={{ color: 'var(--text-muted)' }}
     >
       <span className="flex items-center gap-2">
@@ -48,7 +48,7 @@ export default function Sidebar({ siteName, logo }) {
 
       {/* Play Now Section */}
       <div>
-        <p className="px-3 py-2.5 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>
+        <p className="font-visby px-3 py-2.5 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>
           🍁 Play Now
         </p>
         <div className="mt-2 space-y-1">
