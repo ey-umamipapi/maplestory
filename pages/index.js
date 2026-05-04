@@ -6,17 +6,17 @@ import ServerStatus from "../components/ServerStatus";
 const LEAVES = ["🍁", "🍂", "🍁", "🍂", "🍁", "🍂", "🍁"];
 
 const FEATURES = [
-  { icon: "🏪", title: "Free Market Hub", body: "Type !fm anywhere to instantly teleport to the Free Market where all custom NPCs are set up — everything accessible from the moment you log in." },
-  { icon: "✨", title: "Skill Master", body: "Grab cross-class movement skills like Flash Jump, Haste and Teleport from Grendel — mix abilities across jobs and build your character exactly how you want." },
-  { icon: "⚡", title: "Instant Job Advancement", body: "Talk to Vikan to advance jobs at the right levels. Skills are auto-maxed on advancement so you can play your class properly straight away." },
-  { icon: "🛍️", title: "All-in-One Shop", body: "Frederick stocks everything — early game and endgame gear, weapons, potions, scrolls, NX items, chairs and more, all in one place." },
-  { icon: "🗺️", title: "World Teleporter", body: "Spinel lets you jump straight to any town, party quest or boss entrance instantly. No running, no taxis." },
-  { icon: "💇", title: "Plastic Surgeon", body: "V. Isage can fully customise your hair, face and skin on the spot — free, instant, no coupons needed." },
+  { icon: "🌿", title: "x10 EXP & Mesos", body: "Boosted rates so you can actually progress in a session. No burning an entire weekend just to see a level-up." },
+  { icon: "💰", title: "Free NX Cash", body: "Earn NX in-game to spend on cosmetics. No real money needed — ever." },
   { icon: "⚔️", title: "All Classes", body: "Warriors, Mages, Archers, Thieves, and Pirates — every v83 class and job advancement available." },
   { icon: "👹", title: "All Bosses", body: "Zakum, Horntail, Papulatus, Chaos Zakum, Pink Bean and more. All bosses accessible and farmable." },
   { icon: "🎉", title: "Party Quests", body: "Kerning PQ, Ludibrium PQ, Orbis PQ, Magatia PQ and all classic party quests fully working." },
-  { icon: "🌿", title: "x10 EXP & Mesos", body: "Boosted rates so you can progress at a satisfying pace without the grind being a second job." },
-  { icon: "💰", title: "Free NX Cash", body: "Earn NX in-game to spend on cosmetics. No real money needed — ever." },
+  { icon: "⚡", title: "Instant Job Advancement", body: "Talk to Vikan to advance jobs at the right levels. Skills are auto-maxed on advancement so you can play your class properly straight away." },
+  { icon: "✨", title: "Skill Master", body: "Grab cross-class movement skills like Flash Jump, Haste and Teleport from Grendel — mix and build your character exactly how you want." },
+  { icon: "🗺️", title: "World Teleporter", body: "Spinel lets you jump straight to any town, party quest or boss entrance instantly. No running, no taxis." },
+  { icon: "🏪", title: "Free Market Hub", body: "Type !fm anywhere to instantly teleport to the Free Market where all custom NPCs are set up — everything in one place." },
+  { icon: "🛍️", title: "All-in-One Shop", body: "Frederick stocks everything — early game and endgame gear, weapons, potions, scrolls, NX items, chairs and more." },
+  { icon: "💇", title: "Free Cosmetics", body: "V. Isage can fully customise your hair, face and skin on the spot — free, instant, no coupons needed." },
   { icon: "🤝", title: "Active Community", body: "Small, friendly server. New players always welcome." },
 ];
 
@@ -45,8 +45,10 @@ export default function Home() {
             Welcome to UmamiMS!
           </h1>
 
-          <p className="text-slate-400 text-base md:text-lg max-w-xl mb-10 leading-relaxed">
-            A v83 MapleStory private server built for the love of the game. Free to play, free NX, x10 rates. No cash walls, no BS — just Maple the way it used to be.
+          <p className="text-base md:text-lg max-w-xl mb-10 leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+            A v83 MapleStory private server built for the love of the game.<br />
+            Made for people who still think about those core teenage memories — but don&apos;t have the time anymore.<br />
+            No grind. No cash walls. Just jump in and play.
           </p>
 
           {/* Server Status */}
