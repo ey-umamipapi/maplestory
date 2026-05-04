@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Layout from "../components/Layout";
 
 const LEAVES = ["🍁", "🍂", "🍁", "🍂", "🍁", "🍂", "🍁"];
 
@@ -19,9 +20,7 @@ const FEATURES = [
 ];
 
 export default function Home() {
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME  || "UmamiMS";
-  const gameHost = process.env.NEXT_PUBLIC_GAME_HOST  || "localhost";
-  const gamePort = process.env.NEXT_PUBLIC_GAME_PORT  || "8484";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "UmamiMS";
 
   return (
     <>
@@ -30,60 +29,12 @@ export default function Home() {
         <meta name="description" content={`${siteName} is a free MapleStory private server. Register and play now!`} />
       </Head>
 
-      {/* Starfield background */}
-      <div className="stars-bg" aria-hidden="true" />
-
       {/* Floating leaves */}
       {LEAVES.map((l, i) => (
         <span key={i} className="leaf" aria-hidden="true">{l}</span>
       ))}
 
-      <div className="relative z-10 min-h-screen flex flex-col">
-        {/* ── Nav ───────────────────────────────────────────────────────────── */}
-        <nav className="border-b border-maple-border/30 bg-black/30 backdrop-blur-sm px-6 py-4 flex items-center justify-between">
-          <span className="font-fredoka text-2xl font-bold maple-gradient-text tracking-wide">
-            🍁 {siteName}
-          </span>
-          <div className="flex gap-3">
-            <Link
-              href="/database"
-              className="px-5 py-2 rounded-lg border border-maple-border/50 text-slate-300 hover:border-maple-accent hover:text-maple-accent transition-all text-sm font-semibold"
-            >
-              Database
-            </Link>
-            <Link
-              href="/guides"
-              className="px-5 py-2 rounded-lg border border-maple-border/50 text-slate-300 hover:border-maple-accent hover:text-maple-accent transition-all text-sm font-semibold"
-            >
-              Guides
-            </Link>
-            <Link
-              href="/tools"
-              className="px-5 py-2 rounded-lg border border-maple-border/50 text-slate-300 hover:border-maple-accent hover:text-maple-accent transition-all text-sm font-semibold"
-            >
-              Tools
-            </Link>
-            <Link
-              href="/download"
-              className="px-5 py-2 rounded-lg border border-maple-border/50 text-slate-300 hover:border-maple-accent hover:text-maple-accent transition-all text-sm font-semibold"
-            >
-              Download
-            </Link>
-            <Link
-              href="/login"
-              className="px-5 py-2 rounded-lg border border-maple-border/50 text-slate-300 hover:border-maple-accent hover:text-maple-accent transition-all text-sm font-semibold"
-            >
-              Login
-            </Link>
-            <Link
-              href="/register"
-              className="btn-maple px-5 py-2 rounded-lg text-white font-bold text-sm"
-            >
-              Register
-            </Link>
-          </div>
-        </nav>
-
+      <Layout siteName={siteName}>
         {/* ── Hero ──────────────────────────────────────────────────────────── */}
         <main className="flex-1 flex flex-col items-center justify-center text-center px-6 py-20">
           {/* Badge */}
@@ -93,7 +44,7 @@ export default function Home() {
           </div>
 
           {/* Title */}
-          <h1 className="font-fredoka text-7xl md:text-9xl font-bold mb-4 maple-gradient-text drop-shadow-[0_0_40px_rgba(233,69,96,0.3)] tracking-wide">
+          <h1 className="font-visby text-7xl md:text-9xl font-bold mb-4 maple-gradient-text drop-shadow-[0_0_40px_rgba(233,69,96,0.3)] tracking-wide">
             {siteName}
           </h1>
 
@@ -144,7 +95,7 @@ export default function Home() {
         <footer className="text-center py-6 text-slate-700 border-t border-maple-border/20 text-sm">
           🍁 {siteName} — Just for fun.
         </footer>
-      </div>
+      </Layout>
     </>
   );
 }

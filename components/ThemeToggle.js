@@ -1,63 +1,48 @@
 import { useEffect, useState } from "react";
 
+const THEMES = ["light", "dusk", "night"];
+const ICONS = { light: "☀️", dusk: "🌆", night: "🌙" };
+
 export default function ThemeToggle() {
   const [theme, setTheme] = useState("light");
   const [mounted, setMounted] = useState(false);
 
-  // Load theme from localStorage on mount
   useEffect(() => {
-    const saved = localStorage.getItem("maplesms-theme") || "light";
-    setTheme(saved);
+    const saved = localStorage.getItem("umamims-theme") || "light";
     applyTheme(saved);
+    setTheme(saved);
     setMounted(true);
   }, []);
 
-  const applyTheme = (t) => {
-    const root = document.documentElement;
-    if (t === "dusk") {
-      root.style.setProperty("--bg-primary", "#1a1025");
-      root.style.setProperty("--bg-secondary", "#140e1e");
-      root.style.setProperty("--text-primary", "#e2e8f0");
-      root.style.setProperty("--border-color", "rgba(147, 51, 234, 0.3)");
-    } else if (t === "night") {
-      root.style.setProperty("--bg-primary", "#0a0a14");
-      root.style.setProperty("--bg-secondary", "#0f0f1e");
-      root.style.setProperty("--text-primary", "#e2e8f0");
-      root.style.setProperty("--border-color", "rgba(233, 69, 96, 0.2)");
-    } else {
-      root.style.setProperty("--bg-primary", "#f8f8fb");
-      root.style.setProperty("--bg-secondary", "#ffffff");
-      root.style.setProperty("--text-primary", "#1e293b");
-      root.style.setProperty("--border-color", "rgba(0, 0, 0, 0.1)");
-    }
-  };
+  function applyTheme(t) {
+    const html = document.documentElement;
+    html.classList.remove("theme-dusk", "theme-night");
+    if (t === "dusk") html.classList.add("theme-dusk");
+    if (t === "night") html.classList.add("theme-night");
+    localStorage.setItem("umamims-theme", t);
+  }
 
-  const handleThemeChange = (t) => {
+  function handleChange(t) {
     setTheme(t);
-    localStorage.setItem("maplesms-theme", t);
     applyTheme(t);
-  };
+  }
 
   if (!mounted) return null;
 
   return (
-    <div className="flex gap-1 bg-black/10 dark:bg-white/10 rounded-lg p-1">
-      {[
-        { key: "light", label: "☀️" },
-        { key: "dusk", label: "🌆" },
-        { key: "night", label: "🌙" },
-      ].map(({ key, label }) => (
+    <div className="flex gap-1 rounded-lg p-1" style={{ background: "var(--border-color)" }}>
+      {THEMES.map(t => (
         <button
-          key={key}
-          onClick={() => handleThemeChange(key)}
-          className={`px-2 py-1 rounded text-sm font-semibold transition-all ${
-            theme === key
-              ? "bg-white/30 text-slate-900 dark:bg-slate-700 dark:text-white"
-              : "text-slate-600 dark:text-slate-300 hover:bg-white/20 dark:hover:bg-white/10"
+          key={t}
+          onClick={() => handleChange(t)}
+          title={t.charAt(0).toUpperCase() + t.slice(1)}
+          className={`px-2 py-1 rounded text-sm transition-all ${
+            theme === t
+              ? "bg-maple-accent text-white shadow"
+              : "opacity-50 hover:opacity-100"
           }`}
-          title={key.charAt(0).toUpperCase() + key.slice(1)}
         >
-          {label}
+          {ICONS[t]}
         </button>
       ))}
     </div>
