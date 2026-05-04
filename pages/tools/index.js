@@ -40,7 +40,6 @@ export default function ToolsIndex() {
       </Head>
 
       <Layout siteName={siteName}>
-        <div className="stars-bg" aria-hidden="true" />
 
         <main className="flex-1 px-6 py-16 max-w-4xl mx-auto w-full">
           <div className="text-center mb-14">

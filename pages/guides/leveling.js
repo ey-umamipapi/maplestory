@@ -85,7 +85,6 @@ export default function LevelingGuide() {
       </Head>
 
       <Layout siteName={siteName}>
-        <div className="stars-bg" aria-hidden="true" />
 
         <main className="flex-1 px-6 py-12 max-w-4xl mx-auto w-full">
           {/* Breadcrumb */}

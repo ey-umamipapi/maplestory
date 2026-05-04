@@ -103,7 +103,6 @@ export default function ClassesGuide() {
       </Head>
 
       <Layout siteName={siteName}>
-        <div className="stars-bg" aria-hidden="true" />
 
         <main className="flex-1 px-6 py-12 max-w-4xl mx-auto w-full">
           <div className="text-sm text-slate-600 mb-8">
