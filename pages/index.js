@@ -48,7 +48,7 @@ export default function Home() {
             {siteName}
           </h1>
 
-          <h2 className="font-cinzel text-xl md:text-2xl font-bold text-slate-100 mb-4">
+          <h2 className="font-cinzel text-xl md:text-2xl font-bold mb-4" style={{ color: 'var(--text-heading)' }}>
             Welcome to UmamiMS!
           </h2>
 
@@ -74,7 +74,7 @@ export default function Home() {
 
           {/* ── What's in UmamiMS ───────────────────────────────────────── */}
           <div className="w-full max-w-4xl">
-            <h2 className="font-cinzel text-2xl font-bold text-maple-yellow mb-10 text-center">
+            <h2 className="font-visby text-2xl font-bold text-maple-yellow mb-10 text-center">
               ✨ What&apos;s in UmamiMS
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 text-left">
@@ -82,8 +82,8 @@ export default function Home() {
                 <div key={title} className="maple-card rounded-2xl p-5 flex gap-4 items-start">
                   <span className="text-2xl flex-shrink-0">{icon}</span>
                   <div>
-                    <p className="font-cinzel text-slate-100 text-sm font-bold mb-1">{title}</p>
-                    <p className="text-slate-500 text-xs leading-relaxed">{body}</p>
+                    <p className="font-cinzel text-sm font-bold mb-1" style={{ color: 'var(--text-heading)' }}>{title}</p>
+                    <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>{body}</p>
                   </div>
                 </div>
               ))}

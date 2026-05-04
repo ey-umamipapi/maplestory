@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState, useMemo, useEffect } from "react";
 import fs from "fs";
 import path from "path";
+import Layout from "../components/Layout";
 
 const TABS = ["Monsters", "NPCs", "Maps", "Skills"];
 const PAGE_SIZE = 60;
@@ -233,15 +234,15 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
 
       <style>{`body { font-family: 'Inter', sans-serif; }`}</style>
 
-      <div className={`min-h-screen flex flex-col transition-colors duration-300 ${th.bg}`}>
-        {th.stars && <div className="stars-bg" aria-hidden="true" />}
+      {th.stars && <div className="stars-bg" aria-hidden="true" />}
 
-        {/* ── Nav ── */}
-        <nav className={`relative z-10 border-b backdrop-blur-sm px-6 py-4 flex items-center justify-between ${th.nav}`}>
-          <Link href="/" className="font-fredoka text-2xl font-bold maple-gradient-text tracking-wide">
-            🍁 UmamiMS
-          </Link>
-          <div className="flex items-center gap-3">
+      <Layout siteName="UmamiMS" showSidebar={true}>
+        {/* ── Main ── */}
+        <main className="relative z-10 flex-1 px-4 py-8 max-w-7xl mx-auto w-full">
+          <div className="flex items-start justify-between mb-1 flex-wrap gap-3">
+            <h1 className={`text-3xl font-bold maple-gradient-text`} style={{ fontFamily: "Inter, sans-serif" }}>
+              Game Database
+            </h1>
             {/* Theme toggle */}
             <div className="flex gap-1 bg-black/20 rounded-lg p-1">
               {themeButtons.map(({ key, label }) => (
@@ -256,17 +257,7 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
                 </button>
               ))}
             </div>
-            <Link href="/register" className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${th.btn}`}>
-              Register
-            </Link>
           </div>
-        </nav>
-
-        {/* ── Main ── */}
-        <main className="relative z-10 flex-1 px-4 py-8 max-w-7xl mx-auto w-full">
-          <h1 className={`text-3xl font-bold mb-1 maple-gradient-text`} style={{ fontFamily: "Inter, sans-serif" }}>
-            Game Database
-          </h1>
           <p className={`text-sm mb-8 ${th.subtext}`}>
             Browse monsters, NPCs, maps and skills. Click any command badge to copy it.
           </p>
@@ -414,7 +405,7 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
         <footer className={`relative z-10 text-center py-6 text-sm border-t ${th.footer}`}>
           🍁 UmamiMS — Just for fun.
         </footer>
-      </div>
+      </Layout>
     </>
   );
 }

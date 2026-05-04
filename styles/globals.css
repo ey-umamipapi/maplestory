@@ -36,6 +36,11 @@
   --nav-bg:        rgba(255,255,255,0.95);
   --sidebar-bg:    rgba(255,255,255,0.95);
   --stars-base:    #ffffff;
+  --card-bg:       #ffffff;
+  --card-border:   rgba(0,0,0,0.08);
+  --card-shadow:   0 2px 12px rgba(0,0,0,0.06);
+  --text-muted:    #64748b;
+  --text-heading:  #0f172a;
 }
 
 html.theme-dusk {
@@ -46,6 +51,11 @@ html.theme-dusk {
   --nav-bg:        rgba(20,14,30,0.85);
   --sidebar-bg:    rgba(20,14,30,0.85);
   --stars-base:    #1a1025;
+  --card-bg:       rgba(22,33,62,0.95);
+  --card-border:   rgba(233,69,96,0.25);
+  --card-shadow:   0 20px 60px rgba(0,0,0,0.6);
+  --text-muted:    #94a3b8;
+  --text-heading:  #e2e8f0;
 }
 
 html.theme-night {
@@ -56,6 +66,11 @@ html.theme-night {
   --nav-bg:        rgba(10,10,20,0.85);
   --sidebar-bg:    rgba(10,10,20,0.85);
   --stars-base:    #0a0a14;
+  --card-bg:       rgba(15,15,30,0.98);
+  --card-border:   rgba(233,69,96,0.2);
+  --card-shadow:   0 20px 60px rgba(0,0,0,0.8);
+  --text-muted:    #94a3b8;
+  --text-heading:  #e2e8f0;
 }
 
 /* ── Base ─────────────────────────────────────────────────────────────────────── */
@@ -150,13 +165,11 @@ input:-webkit-autofill {
 
 /* ── Glow card ────────────────────────────────────────────────────────────────── */
 .maple-card {
-  background: linear-gradient(135deg, rgba(22,33,62,0.95) 0%, rgba(15,15,30,0.98) 100%);
-  border: 1px solid rgba(233, 69, 96, 0.25);
-  box-shadow:
-    0 0 0 1px rgba(233,69,96,0.08),
-    0 20px 60px rgba(0,0,0,0.6),
-    inset 0 1px 0 rgba(255,255,255,0.04);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
   backdrop-filter: blur(12px);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 /* ── Font utilities ──────────────────────────────────────────────────────────── */

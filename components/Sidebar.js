@@ -16,7 +16,7 @@ export default function Sidebar({ siteName, logo }) {
   };
 
   const SectionLink = ({ href, label, icon }) => (
-    <Link href={href} className="pl-4 py-2 text-sm text-slate-600 hover:text-maple-accent transition-colors flex items-center gap-2 hover:translate-x-1 transition-transform">
+    <Link href={href} className="pl-4 py-2 text-sm hover:text-maple-accent transition-colors flex items-center gap-2" style={{ color: 'var(--text-muted)' }}>
       <span className="text-xs">{icon}</span>
       {label}
     </Link>
@@ -25,7 +25,8 @@ export default function Sidebar({ siteName, logo }) {
   const SectionHeader = ({ label, section, icon }) => (
     <button
       onClick={() => toggleSection(section)}
-      className="w-full px-3 py-2.5 text-xs font-bold uppercase tracking-widest text-slate-600 hover:text-maple-accent transition-colors flex items-center justify-between hover:bg-slate-100 rounded"
+      className="w-full px-3 py-2.5 text-xs font-bold uppercase tracking-widest hover:text-maple-accent transition-colors flex items-center justify-between hover:bg-black/5 rounded"
+      style={{ color: 'var(--text-muted)' }}
     >
       <span className="flex items-center gap-2">
         <span>{icon}</span>
@@ -39,7 +40,7 @@ export default function Sidebar({ siteName, logo }) {
     <aside className="w-56 backdrop-blur border-r p-4 overflow-y-auto max-h-screen flex flex-col gap-6" style={{ background: "var(--sidebar-bg)", borderColor: "var(--border-color)" }}>
       {/* Logo Section */}
       <Link href="/" className="flex flex-col items-center justify-center py-4 mb-2 hover:opacity-80 transition-opacity gap-2">
-        <img src="/umamims-logo.png" alt={siteName} className="h-24 object-contain" />
+        <img src="/umamims-logo.png" alt={siteName} className="h-24 object-contain" style={{ mixBlendMode: 'multiply' }} />
         <span className="font-visby text-sm text-slate-700">{siteName}</span>
       </Link>
 
@@ -93,7 +94,7 @@ export default function Sidebar({ siteName, logo }) {
 
       {/* Footer */}
       <div className="mt-auto pt-4 border-t border-slate-200">
-        <p className="text-xs text-slate-500 text-center mt-4">v83 • Just for fun</p>
+        <p className="text-xs text-center mt-4" style={{ color: 'var(--text-muted)' }}>v83 • Just for fun</p>
       </div>
     </aside>
   );

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Layout from "../components/Layout";
 
 const LEAVES = ["🍁", "🍂", "🍁", "🍂", "🍁", "🍂", "🍁"];
 
@@ -20,7 +21,7 @@ const DOWNLOADS = [
     label: "Download Installer",
     href: "https://drive.google.com/file/d/1hQEE1--0GL_vP7aMyWgAhrZWu9GP6Ixs/view?usp=drive_link",
     badge: "Required",
-    badgeColor: "bg-slate-700/50 text-slate-300 border-slate-600/30",
+    badgeColor: "bg-slate-100 text-slate-600 border-slate-200",
   },
   {
     icon: "🗂",
@@ -29,7 +30,7 @@ const DOWNLOADS = [
     label: "Download WZ Files",
     href: "https://drive.google.com/file/d/150IJbyicN7eKSDVaJLILRaOV5jSLUkhC/view?usp=drive_link",
     badge: "Required",
-    badgeColor: "bg-slate-700/50 text-slate-300 border-slate-600/30",
+    badgeColor: "bg-slate-100 text-slate-600 border-slate-200",
   },
 ];
 
@@ -91,45 +92,17 @@ export default function Download() {
         <meta name="description" content={`Download the ${siteName} client and get started playing MapleStory v83 for free.`} />
       </Head>
 
-      <div className="stars-bg" aria-hidden="true" />
       {LEAVES.map((l, i) => <span key={i} className="leaf" aria-hidden="true">{l}</span>)}
 
-      <div className="relative z-10 min-h-screen flex flex-col">
-        {/* Nav */}
-        <nav className="border-b border-maple-border/30 bg-black/30 backdrop-blur-sm px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="font-fredoka text-2xl font-bold maple-gradient-text tracking-wide hover:opacity-80 transition-opacity">
-            🍁 {siteName}
-          </Link>
-          <div className="flex gap-3">
-            <Link
-              href="/download"
-              className="px-5 py-2 rounded-lg border border-maple-accent/50 text-maple-accent text-sm font-semibold"
-            >
-              Download
-            </Link>
-            <Link
-              href="/login"
-              className="px-5 py-2 rounded-lg border border-maple-border/50 text-slate-300 hover:border-maple-accent hover:text-maple-accent transition-all text-sm font-semibold"
-            >
-              Login
-            </Link>
-            <Link
-              href="/register"
-              className="btn-maple px-5 py-2 rounded-lg text-white font-bold text-sm"
-            >
-              Register
-            </Link>
-          </div>
-        </nav>
-
+      <Layout siteName={siteName}>
         <main className="flex-1 flex flex-col items-center px-6 py-16">
 
           {/* Header */}
           <div className="text-center mb-14">
-            <h1 className="font-cinzel text-4xl md:text-5xl font-bold text-slate-100 mb-4">
+            <h1 className="font-visby text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--text-heading)' }}>
               Download & Play
             </h1>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto leading-relaxed">
+            <p className="text-lg max-w-xl mx-auto leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               Everything you need to get into {siteName}. Free to download, free to play.
             </p>
           </div>
@@ -145,8 +118,8 @@ export default function Download() {
                   </span>
                 </div>
                 <div>
-                  <h2 className="font-cinzel text-base font-bold text-slate-100 mb-2">{title}</h2>
-                  <p className="text-slate-500 text-sm leading-relaxed">{description}</p>
+                  <h2 className="font-cinzel text-base font-bold mb-2" style={{ color: 'var(--text-heading)' }}>{title}</h2>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{description}</p>
                 </div>
                 <a
                   href={href}
@@ -174,17 +147,17 @@ export default function Download() {
                     {i + 1}
                   </span>
                   <div>
-                    <p className="font-cinzel text-slate-100 font-bold mb-1">
+                    <p className="font-cinzel font-bold mb-1" style={{ color: 'var(--text-heading)' }}>
                       {emoji} {title}
                     </p>
-                    <p className="text-slate-400 text-sm leading-relaxed">{body}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{body}</p>
                   </div>
                 </li>
               ))}
             </ol>
 
             <div className="mt-10 maple-card rounded-2xl p-6 text-center">
-              <p className="text-slate-400 text-sm mb-4">Ready to go? Create your account and jump in.</p>
+              <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>Ready to go? Create your account and jump in.</p>
               <Link href="/register" className="btn-maple inline-block px-8 py-3 rounded-xl text-white font-bold text-base">
                 🍁 Create Account
               </Link>
@@ -195,7 +168,7 @@ export default function Download() {
         <footer className="text-center py-6 text-slate-700 border-t border-maple-border/20 text-sm">
           🍁 {siteName} — For fun, not profit.
         </footer>
-      </div>
+      </Layout>
     </>
   );
 }
