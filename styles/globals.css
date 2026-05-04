@@ -2,16 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Custom Fonts ─────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Visby Round CF';
+  src: url('/fonts/VisbyRoundCF-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Visby Round CF';
+  src: url('/fonts/VisbyRoundCF-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Visby Round CF';
+  src: url('/fonts/VisbyRoundCF-Heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 /* ── Google Fonts ─────────────────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fredoka:wght@600;700&family=Nunito:wght@400;600;700&display=swap');
+
+/* ── CSS Variables for Theming ──────────────────────────────────────────────── */
+:root {
+  --bg-primary: #f8f8fb;
+  --bg-secondary: #ffffff;
+  --text-primary: #1e293b;
+  --border-color: rgba(0, 0, 0, 0.1);
+}
 
 /* ── Base ─────────────────────────────────────────────────────────────────────── */
 body {
   font-family: 'Nunito', sans-serif;
-  background-color: #0a0a14;
-  color: #e2e8f0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   overflow-x: hidden;
   cursor: url('/cursor.cur'), default;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a, button, [role="button"], select, input[type="submit"], input[type="button"],
@@ -21,7 +52,7 @@ label, [onClick], .maple-card {
 
 /* ── Custom scrollbar ─────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0a0a14; }
+::-webkit-scrollbar-track { background: var(--bg-primary); transition: background 0.3s ease; }
 ::-webkit-scrollbar-thumb { background: #e94560; border-radius: 3px; }
 
 /* ── Input autofill override ──────────────────────────────────────────────────── */
@@ -104,8 +135,11 @@ input:-webkit-autofill {
   backdrop-filter: blur(12px);
 }
 
-/* ── Cinzel font utility ──────────────────────────────────────────────────────── */
+/* ── Font utilities ──────────────────────────────────────────────────────────── */
 .font-cinzel { font-family: 'Cinzel', serif; }
+.font-visby { font-family: 'Visby Round CF', sans-serif; font-weight: 700; }
+.font-visby-extrabold { font-family: 'Visby Round CF', sans-serif; font-weight: 800; }
+.font-visby-heavy { font-family: 'Visby Round CF', sans-serif; font-weight: 900; }
 
 /* ── Gradient text ────────────────────────────────────────────────────────────── */
 .maple-gradient-text {
