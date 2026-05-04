@@ -38,7 +38,11 @@ export default function Home() {
         {/* ── Hero ──────────────────────────────────────────────────────────── */}
         <main className="flex-1 flex flex-col items-center justify-center text-center px-6 py-20">
           {/* Logo */}
-          <img src="/umamims-logo.png" alt={siteName} className="h-44 md:h-60 object-contain mb-6" />
+          <img src="/umamims-logo.png" alt={siteName} className="h-44 md:h-60 object-contain mb-4" />
+
+          <h1 className="font-visby text-3xl md:text-4xl font-bold mb-6 maple-gradient-text drop-shadow-[0_0_30px_rgba(233,69,96,0.4)]">
+            Welcome to UmamiMS!
+          </h1>
 
           <p className="text-slate-400 text-base md:text-lg max-w-xl mb-10 leading-relaxed">
             A v83 MapleStory private server built for the love of the game. Free to play, free NX, x10 rates. No cash walls, no BS — just Maple the way it used to be.
