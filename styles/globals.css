@@ -43,21 +43,6 @@
   --text-heading:  #0f172a;
 }
 
-html.theme-dusk {
-  --bg-primary:    #1a1025;
-  --bg-secondary:  #140e1e;
-  --text-primary:  #e2e8f0;
-  --border-color:  rgba(147,51,234,0.3);
-  --nav-bg:        rgba(20,14,30,0.85);
-  --sidebar-bg:    rgba(20,14,30,0.85);
-  --stars-base:    #1a1025;
-  --card-bg:       rgba(22,33,62,0.95);
-  --card-border:   rgba(233,69,96,0.25);
-  --card-shadow:   0 20px 60px rgba(0,0,0,0.6);
-  --text-muted:    #94a3b8;
-  --text-heading:  #e2e8f0;
-}
-
 html.theme-night {
   --bg-primary:    #0a0a14;
   --bg-secondary:  #0f0f1e;

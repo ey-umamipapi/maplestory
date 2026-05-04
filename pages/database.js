@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useState, useMemo, useEffect } from "react";
+import { useRouter } from "next/router";
 import fs from "fs";
 import path from "path";
 import Layout from "../components/Layout";
@@ -166,6 +167,7 @@ function SkillCard({ id, name, desc, th }) {
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function Database({ mobs, npcs, maps, skills, metadata }) {
+  const router = useRouter();
   const [themeName, setThemeName] = useState("night");
   const [tab, setTab]   = useState("Monsters");
   const [search, setSearch] = useState("");
@@ -176,6 +178,15 @@ export default function Database({ mobs, npcs, maps, skills, metadata }) {
 
   // Default to system theme on mount
   useEffect(() => { setThemeName(getSystemTheme()); }, []);
+
+  // Read ?tab= query param from sidebar links
+  useEffect(() => {
+    if (router.query.tab && TABS.includes(router.query.tab)) {
+      setTab(router.query.tab);
+      setSearch("");
+      setPage(0);
+    }
+  }, [router.query.tab]);
 
   const th = THEMES[themeName];
 

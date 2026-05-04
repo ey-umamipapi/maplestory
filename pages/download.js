@@ -118,7 +118,7 @@ export default function Download() {
                   </span>
                 </div>
                 <div>
-                  <h2 className="font-cinzel text-base font-bold mb-2" style={{ color: 'var(--text-heading)' }}>{title}</h2>
+                  <h2 className="font-visby text-base font-bold mb-2" style={{ color: 'var(--text-heading)' }}>{title}</h2>
                   <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{description}</p>
                 </div>
                 <a
@@ -137,7 +137,7 @@ export default function Download() {
 
           {/* Tutorial */}
           <div className="w-full max-w-2xl">
-            <h2 className="font-cinzel text-2xl font-bold text-maple-yellow mb-10 text-center">
+            <h2 className="font-visby text-2xl font-bold text-maple-yellow mb-10 text-center">
               📖 Setup Guide
             </h2>
             <ol className="space-y-6">
@@ -147,7 +147,7 @@ export default function Download() {
                     {i + 1}
                   </span>
                   <div>
-                    <p className="font-cinzel font-bold mb-1" style={{ color: 'var(--text-heading)' }}>
+                    <p className="font-visby font-bold mb-1" style={{ color: 'var(--text-heading)' }}>
                       {emoji} {title}
                     </p>
                     <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{body}</p>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const THEMES = ["light", "dusk", "night"];
-const ICONS = { light: "☀️", dusk: "🌆", night: "🌙" };
+const THEMES = ["light", "night"];
+const ICONS = { light: "☀️", night: "🌙" };
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState("light");

@@ -46,11 +46,16 @@ export default function Sidebar({ siteName, logo }) {
 
       <div className="maple-divider" />
 
-      {/* Quick Action Links */}
-      <div className="space-y-2">
-        <SectionLink href="/download" label="Download Client" icon="⬇️" />
-        <SectionLink href="/login" label="Login" icon="🔐" />
-        <SectionLink href="/register" label="Register" icon="✍️" />
+      {/* Play Now Section */}
+      <div>
+        <p className="px-3 pb-2 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>
+          🍁 Play Now
+        </p>
+        <div className="space-y-1">
+          <SectionLink href="/download" label="Download Client" icon="⬇️" />
+          <SectionLink href="/login" label="Login" icon="🔐" />
+          <SectionLink href="/register" label="Register" icon="✍️" />
+        </div>
       </div>
 
       <div className="maple-divider" />

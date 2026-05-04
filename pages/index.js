@@ -82,7 +82,7 @@ export default function Home() {
                 <div key={title} className="maple-card rounded-2xl p-5 flex gap-4 items-start">
                   <span className="text-2xl flex-shrink-0">{icon}</span>
                   <div>
-                    <p className="font-cinzel text-sm font-bold mb-1" style={{ color: 'var(--text-heading)' }}>{title}</p>
+                    <p className="font-visby text-sm font-bold mb-1" style={{ color: 'var(--text-heading)' }}>{title}</p>
                     <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>{body}</p>
                   </div>
                 </div>
