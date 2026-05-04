@@ -72,7 +72,7 @@ export default function Home() {
         <section className="w-full px-6 py-16" style={{ background: 'var(--bg-secondary)' }}>
           <div className="max-w-5xl mx-auto">
             <div className="maple-divider mb-12" />
-            <h2 className="font-visby text-2xl font-bold text-maple-yellow mb-10 text-center">
+            <h2 className="font-visby text-2xl font-bold maple-gradient-text mb-10 text-center">
               ✨ What&apos;s in UmamiMS
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
