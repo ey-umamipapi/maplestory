@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import Nav from "../../components/Nav";
+import Layout from "../../components/Layout";
 
 const CLASSES = [
   {
@@ -102,12 +102,10 @@ export default function ClassesGuide() {
         <meta name="description" content="Full guide to all Explorer classes in MapleStory v83 on UmamiMS" />
       </Head>
 
-      <div className="stars-bg" aria-hidden="true" />
+      <Layout siteName={siteName}>
+        <div className="stars-bg" aria-hidden="true" />
 
-      <div className="relative z-10 min-h-screen flex flex-col">
-        <Nav siteName={siteName} />
-
-        <main className="flex-1 px-6 py-12 max-w-3xl mx-auto w-full">
+        <main className="flex-1 px-6 py-12 max-w-4xl mx-auto w-full">
           <div className="text-sm text-slate-600 mb-8">
             <Link href="/guides" className="hover:text-maple-accent transition-colors">Guides</Link>
             <span className="mx-2">›</span>
@@ -178,7 +176,7 @@ export default function ClassesGuide() {
         <footer className="text-center py-6 text-slate-700 border-t border-maple-border/20 text-sm">
           🍁 {siteName} — Just for fun.
         </footer>
-      </div>
+      </Layout>
     </>
   );
 }

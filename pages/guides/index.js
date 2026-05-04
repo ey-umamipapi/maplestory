@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import Nav from "../../components/Nav";
+import Layout from "../../components/Layout";
 
 const GUIDES = [
   {
@@ -39,10 +39,8 @@ export default function GuidesIndex() {
         <meta name="description" content={`MapleStory v83 guides for ${siteName}`} />
       </Head>
 
-      <div className="stars-bg" aria-hidden="true" />
-
-      <div className="relative z-10 min-h-screen flex flex-col">
-        <Nav siteName={siteName} />
+      <Layout siteName={siteName}>
+        <div className="stars-bg" aria-hidden="true" />
 
         <main className="flex-1 px-6 py-16 max-w-4xl mx-auto w-full">
           <div className="text-center mb-14">
@@ -69,7 +67,7 @@ export default function GuidesIndex() {
         <footer className="text-center py-6 text-slate-700 border-t border-maple-border/20 text-sm">
           🍁 {siteName} — Just for fun.
         </footer>
-      </div>
+      </Layout>
     </>
   );
 }

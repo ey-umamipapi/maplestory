@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import Nav from "../../components/Nav";
+import Layout from "../../components/Layout";
 
 export default function ZakumGuide() {
   const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "UmamiMS";
@@ -12,12 +12,10 @@ export default function ZakumGuide() {
         <meta name="description" content="How to fight Zakum on UmamiMS - arms, body phases, party setup and drops" />
       </Head>
 
-      <div className="stars-bg" aria-hidden="true" />
+      <Layout siteName={siteName}>
+        <div className="stars-bg" aria-hidden="true" />
 
-      <div className="relative z-10 min-h-screen flex flex-col">
-        <Nav siteName={siteName} />
-
-        <main className="flex-1 px-6 py-12 max-w-3xl mx-auto w-full">
+        <main className="flex-1 px-6 py-12 max-w-4xl mx-auto w-full">
           <div className="text-sm text-slate-600 mb-8">
             <Link href="/guides" className="hover:text-maple-accent transition-colors">Guides</Link>
             <span className="mx-2">›</span>
@@ -190,7 +188,7 @@ export default function ZakumGuide() {
         <footer className="text-center py-6 text-slate-700 border-t border-maple-border/20 text-sm">
           🍁 {siteName} — Just for fun.
         </footer>
-      </div>
+      </Layout>
     </>
   );
 }

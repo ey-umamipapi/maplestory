@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import Nav from "../../components/Nav";
+import Layout from "../../components/Layout";
 
 const SPOTS = [
   {
@@ -84,12 +84,10 @@ export default function LevelingGuide() {
         <meta name="description" content="Best training spots level 1 to 120 for UmamiMS MapleStory v83" />
       </Head>
 
-      <div className="stars-bg" aria-hidden="true" />
+      <Layout siteName={siteName}>
+        <div className="stars-bg" aria-hidden="true" />
 
-      <div className="relative z-10 min-h-screen flex flex-col">
-        <Nav siteName={siteName} />
-
-        <main className="flex-1 px-6 py-12 max-w-3xl mx-auto w-full">
+        <main className="flex-1 px-6 py-12 max-w-4xl mx-auto w-full">
           {/* Breadcrumb */}
           <div className="text-sm text-slate-600 mb-8">
             <Link href="/guides" className="hover:text-maple-accent transition-colors">Guides</Link>
@@ -146,7 +144,7 @@ export default function LevelingGuide() {
         <footer className="text-center py-6 text-slate-700 border-t border-maple-border/20 text-sm">
           🍁 {siteName} — Just for fun.
         </footer>
-      </div>
+      </Layout>
     </>
   );
 }
